@@ -73,7 +73,10 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form>Already Registered 
+                     <a class="btn btn-link" href="{{ url('/hub/') }}">
+                         Click To Login
+                    </a>
                 </div>
             </div>
         </div>

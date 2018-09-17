@@ -74,6 +74,9 @@
                             </div>
                         </div>
                     </form>
+                    <a class="btn btn-link" href="{{ url('/commutter/') }}">
+                         Click To Login
+                    </a>
                 </div>
             </div>
         </div>

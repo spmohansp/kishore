@@ -56,6 +56,9 @@
 
                                 <a class="btn btn-link" href="{{ url('/commutter/password/reset') }}">
                                     Forgot Your Password?
+                                </a>Not registered yet?
+                                  <a class="btn btn-link" href="{{ url('/commutter/register') }}">
+                                     Click here
                                 </a>
                             </div>
                         </div>

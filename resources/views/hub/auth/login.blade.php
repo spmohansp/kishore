@@ -56,6 +56,10 @@
 
                                 <a class="btn btn-link" href="{{ url('/hub/password/reset') }}">
                                     Forgot Your Password?
+                                </a>Not registered yet?
+
+                                <a class="btn btn-link" href="{{ url('/hub/register') }}">
+                                     Click here
                                 </a>
                             </div>
                         </div>

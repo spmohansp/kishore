@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/hub', 'HubAuth\LoginController@showLoginForm')->name('login');
+Route::get('/commutter', 'CommutterAuth\LoginController@showLoginForm')->name('login');
+
+
 Route::group(['prefix' => 'hub'], function () {
   Route::get('/login', 'HubAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'HubAuth\LoginController@login');
