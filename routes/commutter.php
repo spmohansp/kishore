@@ -14,6 +14,6 @@ Route::get('/home', function () {
 Route::get('/addproduct', 'commuttercontroller@showaddproduct');
 Route::post('/addproduct', 'commuttercontroller@addproduct')->name('addproduct');
 Route::get('/viewproduct', 'commuttercontroller@viewAnimator');
-Route::delete('/viewproduct/{id}/delete', 'commuttercontroller@deleteproduct')->name('deleteproduct');
-Route::get('/viewproduct/{id}/edit', 'commuttercontroller@showEditproduct')->name('editviewproduct');
-Route::post('/viewproduct/{id}/edit', 'commuttercontroller@updateproduct')->name('updateviewproduct');
+// Route::delete('/viewproduct/{id}/delete', 'commuttercontroller@deleteproduct')->name('deleteproduct');
+// Route::get('/viewproduct/{id}/edit', 'commuttercontroller@showEditproduct')->name('editviewproduct');
+// Route::post('/viewproduct/{id}/edit', 'commuttercontroller@updateproduct')->name('updateviewproduct');

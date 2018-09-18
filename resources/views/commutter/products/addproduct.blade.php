@@ -11,7 +11,7 @@
     Add product
 @endsection
 @section('content')
-    <form action="" method="POST">
+    <form action="#" method="POST">
         {{ csrf_field() }}
 
         <h3>Add Parcel Details</h3>
