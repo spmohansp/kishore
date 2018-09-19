@@ -12,7 +12,5 @@ class commuttercontroller extends Controller
         $this->middleware('commutter');
     }
 
-    public function showaddproduct(){
-        return view('commutter.products.addproduct');
-    }
+    
 }

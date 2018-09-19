@@ -15,19 +15,7 @@
             </ul>
 
 
-           <li class="c-sidebar__item has-submenu">
-                    <a class="c-sidebar__link @yield('product')" data-toggle="collapse" href="#sidebar-submenu3" aria-expanded="false" aria-controls="sidebar-submenu">
-                        <i class="c-sidebar__icon feather icon-user "></i>Product
-                    </a>
-
-                    <div>
-                        <ul class="c-sidebar__list collapse" id="sidebar-submenu3">
-                            <li><a class="c-sidebar__link @yield('addprojectcoordinator')" href="{{ url('commutter/addproduct') }}">Add Product</a></li>
-                            <li><a class="c-sidebar__link @yield('viewprojectcoordinator')" href="#">View Product</a></li>
-                        </ul>
-                    </div>
-
-                </li>
+           
 
 
         </div>

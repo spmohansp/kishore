@@ -10,3 +10,13 @@ Route::get('/home', function () {
     return view('hub.home');
 })->name('home');
 
+
+Route::get('/addproduct', 'HubController@showaddproduct');
+Route::post('/addproduct', 'HubController@addproduct')->name('addproduct');
+Route::get('/viewproduct', 'HubController@viewproduct');
+Route::delete('/viewproduct/{id}/delete', 'HubController@deleteproduct')->name('deleteproduct');
+Route::get('/viewproduct/{id}/edit', 'HubController@showEditproduct')->name('editproduct');
+Route::post('/viewproduct/{id}/edit', 'HubController@updateproduct')->name('updateproduct');
+
+
+
