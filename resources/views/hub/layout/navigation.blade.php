@@ -24,6 +24,7 @@
                         <ul class="c-sidebar__list collapse" id="sidebar-submenu1">
                             <li><a class="c-sidebar__link @yield('addproduct')" href="{{ url('hub/addproduct') }}">Add Product</a></li>
                             <li><a class="c-sidebar__link @yield('viewproduct')" href="{{ url('hub/viewproduct') }}">View Product</a></li>
+                             <li><a class="c-sidebar__link @yield('addproduct')" href="{{ url('hub/addreceiver') }}">Add Receiver</a></li>
                         </ul>
                     </div>
 
