@@ -29,7 +29,7 @@
                     </thead>
 
                     <tbody>
-                   
+                   @foreach($product as $addproduct)
                         <tr class="c-table__row">
                             <td class="c-table__cell">{{$addproduct->parcelname}}</td>
                             <th class="c-table__cell">{{$addproduct->dimensions}}</th>
@@ -55,7 +55,7 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                 @endforeach
                     </tbody>
                 </table>
             </div>
