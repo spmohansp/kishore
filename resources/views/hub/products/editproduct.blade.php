@@ -63,7 +63,7 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Time</label>
-                        <input class="c-input" id="input4" placeholder="Enter animal pickuptime" name="pickuptime" value = "{{ $addproduct -> pickuptime }}"required type="text">
+                        <input class="c-input" id="input4" placeholder="Enter animal pickuptime" name="pickuptime" value = "{{ $addproduct -> pickuptime }}" required type="text">
                     </div>
 
                
@@ -73,7 +73,7 @@
 <div  style="text-align: center">
             <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Next</button>&emsp;&emsp;&emsp;&emsp;
         
-            <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Cancel</button>
+            <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
         
 </div>
 

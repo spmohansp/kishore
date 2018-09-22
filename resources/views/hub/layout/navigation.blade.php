@@ -25,6 +25,7 @@
                             <li><a class="c-sidebar__link @yield('addproduct')" href="{{ url('hub/addproduct') }}">Add Product</a></li>
                             <li><a class="c-sidebar__link @yield('viewproduct')" href="{{ url('hub/viewproduct') }}">View Product</a></li>
                              <li><a class="c-sidebar__link @yield('addproduct')" href="{{ url('hub/addreceiver') }}">Add Receiver</a></li>
+                              <li><a class="c-sidebar__link @yield('viewreceiver')" href="{{ url('hub/viewreceiver') }}">View Receiver</a></li>
                         </ul>
                     </div>
 

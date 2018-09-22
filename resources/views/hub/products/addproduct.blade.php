@@ -56,7 +56,7 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Date</label>
-                        <input class="c-input" id="input4" placeholder="Enter Pickupdate" name="pickupdate" required type="text">
+                        <input class="c-input" id="input4" placeholder="Enter Pickupdate" name="pickupdate" required type="date">
                     </div>
 
                 </div>
@@ -64,7 +64,7 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Time</label>
-                        <input class="c-input" id="input4" placeholder="Enter animal pickuptime" name="pickuptime" required type="text">
+                        <input class="c-input" id="input4" placeholder="Enter animal pickuptime" name="pickuptime" required type="date">
                     </div>
 
                

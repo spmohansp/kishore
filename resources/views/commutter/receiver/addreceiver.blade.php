@@ -1,5 +1,5 @@
-@extends('hub.layout.master')
-@section('products')
+@extends('commutter.layout.master')
+@section('receiver')
     is-active
 @endsection
 
@@ -11,7 +11,7 @@
     Add Receiver
 @endsection
 @section('content')
-    <form action="{{ route('hub.addreceiver') }}" method="POST">
+    <form action="{{ route('commutter.addreceiver') }}" method="POST">
         {{ csrf_field() }}
 
         <h3>Add Receiver Details</h3>
