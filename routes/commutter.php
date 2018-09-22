@@ -22,3 +22,7 @@ Route::post('/viewreceiver/{id}/edit', 'commuttercontroller@updatereceiver')->na
 
 
 
+Route::get('/addreceiver', 'commuttercontroller@showaddreceiver');
+Route::post('/addreceiver', 'commuttercontroller@addreceiver')->name('addreceiver');
+Route::get('/viewreceiver', 'commuttercontroller@viewreceiver');
+

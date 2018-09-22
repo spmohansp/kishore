@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('parcelname');
-            $table->string('Dimensions');
+            $table->string('dimensions');
             $table->string('parcelweight');
             $table->string('pickupaddresss');
             $table->string('dropoffaddress');
