@@ -42,7 +42,7 @@ class HubController extends Controller
 
             $Request->delete();
             return back();
-        } catch (Exception $e){
+        } 	catch (Exception $e){
             return back();
         }
     }
@@ -67,20 +67,6 @@ class HubController extends Controller
         return view('hub.products.viewproduct',compact('product'));
     }
 
-    public function showaddreceiver()
-    {
-        return view('hub.products.addreceiver');
-    }
-
-    public function addreceiver()
-    {
-        $receiver = new receiver;
-        $receiver->receivername = request('receivername');
-        $receiver->receiverphone = request('receiverphone');
-        $receiver->email = request('email');
-        $receiver->save();
-        return back();
-    }
- 
+   
  }
 

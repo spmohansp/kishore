@@ -19,7 +19,9 @@ Route::get('/viewproduct/{id}/edit', 'HubController@showEditproduct')->name('edi
 Route::post('/viewproduct/{id}/edit', 'HubController@updateproduct')->name('updateproduct');
 
 
-Route::get('/addreceiver', 'HubController@addreceiver');
-Route::post('/addreceiver', 'HubController@addreceiver')->name('addreceiver');
+
+
+
+
 
 
