@@ -11,3 +11,7 @@ Route::get('/home', function () {
 })->name('home');
 
 
+Route::get('/addreceiver', 'commuttercontroller@showaddreceiver');
+Route::post('/addreceiver', 'commuttercontroller@addreceiver')->name('addreceiver');
+Route::get('/viewreceiver', 'commuttercontroller@viewreceiver');
+
