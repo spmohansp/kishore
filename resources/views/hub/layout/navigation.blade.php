@@ -14,21 +14,18 @@
                 </li>
             </ul>
 
+            <li class="c-sidebar__item has-submenu">
+                <a class="c-sidebar__link @yield('product')" data-toggle="collapse" href="#sidebar-submenu1" aria-expanded="false" aria-controls="sidebar-submenu">
+                    <i class="c-sidebar__icon feather icon-user "></i>Product
+                </a>
 
-             <li class="c-sidebar__item has-submenu">
-                    <a class="c-sidebar__link @yield('product')" data-toggle="collapse" href="#sidebar-submenu1" aria-expanded="false" aria-controls="sidebar-submenu">
-                        <i class="c-sidebar__icon feather icon-user "></i>Product
-                    </a>
-
-                    <div>
-                        <ul class="c-sidebar__list collapse" id="sidebar-submenu1">
-                            <li><a class="c-sidebar__link @yield('addproduct')" href="{{ url('hub/addproduct') }}">Add Product</a></li>
-                            <li><a class="c-sidebar__link @yield('viewproduct')" href="{{ url('hub/viewproduct') }}">View Product</a></li>
-
-                        </ul>
-                    </div>
-
-
+                <div>
+                    <ul class="c-sidebar__list collapse" id="sidebar-submenu1">
+                        <li><a class="c-sidebar__link @yield('addproduct')" href="{{ url('hub/addproduct') }}">Add Product</a></li>
+                        <li><a class="c-sidebar__link @yield('viewproduct')" href="{{ url('hub/viewproduct') }}">View Product</a></li>
+                    </ul>
+                </div>
+            </li>
         </div>
 
         <a class="c-sidebar__footer" href="{{ url('/hub/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

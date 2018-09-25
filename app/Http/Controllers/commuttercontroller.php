@@ -14,13 +14,11 @@ class commuttercontroller extends Controller
         $this->middleware('commutter');
     }
 
-    public function showaddreceiver()
-    {
+    public function showaddreceiver(){
         return view('commutter.receivers.addreceiver');
     }
 
-    public function addreceiver()
-    {
+    public function addreceiver(){
         $receiver = new receiver;
         $receiver->receivername = request('receivername');
         $receiver->receiverphone = request('receiverphone');
@@ -29,43 +27,36 @@ class commuttercontroller extends Controller
         return back()->with('success', 'Receiver Added Successfully');
     }
 
-    public function showEditreceiver($id)
-    {
+    public function showEditreceiver($id){
         $receiver = receiver::findOrfail($id);
         return view('commutter.receivers.editreceiver', compact('receiver'));
     }
 
     public function deletereceiver($id){
         try{
-            $Request = receiver::findOrfail($id);
-            $Request->delete();
-            return back()->with('danger','Reciever Deleted Successfully');
+            receiver::findOrfail($id)->delete();
+            return back()->with('success','Reciever Deleted Successfully');
         } catch (Exception $e){
-            return back()->with('danger','Reciever Deleted Successfully');
+            return back()->with('danger','Some Thing Went Wrong!');
         }
     }
 
-    public function updatereceiver($id)
-    {
-        $addreceiver = addreceiver:: findOrfail($id);
-        $addreceiver->receivername  = request('receivername');
+    public function updatereceiver($id){
+        $addreceiver = addreceiver::findOrfail($id);
+        $addreceiver->receivername = request('receivername');
         $addreceiver->receiverphone = request('receiverphone');
         $addreceiver->email = request('email');
         $addreceiver->save();
-        return back()->with('update', 'Receiver Updated Successfully');
+        return back()->with('success', 'Receiver Updated Successfully');
     }
 
-    public function viewreceiver()
-    {
+    public function viewreceiver(){
         $receivers = receiver::all();
         return view('commutter.receivers.viewreceiver', compact('receivers'));
     }
 
-    public function showhome()
-    {
+    public function showhome(){
         $products = product::all();
         return view('commutter.home',compact('products'));
     }
-
- 
 }

@@ -40,7 +40,7 @@ class HubController extends Controller
     }
 
     public function updateproduct($id){
-        $product = product :: findOrfail($id);
+        $product = product::findOrfail($id);
         $product->parcelname = request('parcelname');
         $product->dimensions = request('dimensions');
         $product->parcelweight = request('parcelweight');
@@ -49,17 +49,15 @@ class HubController extends Controller
         $product->pickupdate = request('pickupdate');
         $product->pickuptime = request('pickuptime');
         $product ->save();
-        return back()->with('update', 'Product Updated Successfully');
+        return back()->with('success', 'Product Updated Successfully');
     }
 
     public function deleteproduct($id){
         try{
-
-            $Request = product::findOrfail($id);
-            $Request->delete()->with('danger','Product Deleted Successfully');
-            return back();
+            product::findOrfail($id)->delete();
+            return back()->with('success','Product Deleted Successfully');
         } 	catch (Exception $e){
-            return back()->with('danger','Product Deleted Successfully');
+            return back()->with('danger','Some Thing Went Wrong!');
         }
     }
 
