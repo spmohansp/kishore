@@ -37,7 +37,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ url('css/neat.css?v=1.0') }}">
 
-{{--<! -- timepicker --!>--}}
+<!-- timepicker -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.3/jquery.timepicker.min.css">
 
 
