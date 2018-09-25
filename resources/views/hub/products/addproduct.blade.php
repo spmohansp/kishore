@@ -1,5 +1,6 @@
 @extends('hub.layout.master')
-@section('products')
+
+@section('product')
     is-active
 @endsection
 
@@ -10,12 +11,11 @@
 @section('header')
     Add product
 @endsection
+
 @section('content')
     <form action="{{ route('hub.addproduct') }}" method="POST">
         {{ csrf_field() }}
-
         <h3>Add Parcel Details</h3>
-        
         <div class="c-card">
             <div class="row u-mb-medium">
                 <div class="col-lg-6 u-mb-xsmall">
@@ -23,31 +23,32 @@
                         <label class="c-field__label" for="input1">Parcel Name</label>
                         <input class="c-input" id="input1" placeholder="Enter your parcelname" name="parcelname" required type="text" >
                     </div>
-                </div><br> <br>
+                </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="r-field">
                         <label class="c-field__label" for="input2">Dimensions</label>
                         <input class="c-input" id="input2" placeholder="Enter your dimensions" name="dimensions" onkeypress="return  isNumberKey(event)"  required type="text">
                     </div>
-                </div><br><br>
+                </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input3">Parcel Weight</label>
                         <select class="c-select__input" name="parcelweight" onkeypress="return  isNumberKey(event)"  required >
-                            <option value="under 1 kg">under 1 kg</option>
-                            <option value="2-5 kg">2-5 kg</option>
-                            <option value="6-10 kg">6-10 kg</option>
-                            <option value="11-15 kg">11-15 kg</option>
-                            <option value="over 15 kg">over 15 kg</option>
+                            <option value="">Select Parcel Weight</option>
+                            <option value="under_1_kg">under 1 KG</option>
+                            <option value="2-5_kg">2-5 KG</option>
+                            <option value="6-10_kg">6-10 KG</option>
+                            <option value="11-15_kg">11-15 KG</option>
+                            <option value="over_15_kg">over 15 KG</option>
                         </select>
                     </div>
-                </div><br><br>
+                </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Address </label>
                         <input class="c-input" id="input4"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddresss"  required >
                     </div>
-                </div><br><br>
+                </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Dropoff Address</label>
@@ -60,25 +61,19 @@
                         <input class="c-input" id="datepicker" placeholder="Enter pickupdate" name="pickupdate"onkeypress="return  isNumberKey(event)"  required >
                     </div>
                 </div>
-                <br><br>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Time</label>
                         <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickuptime" onkeypress="return  isNumberKey(event)"  required>
                     </div>
-
-               
+                </div>
+            </div>
+            <div  style="text-align: center">
+                <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Next</button>&emsp;&emsp;&emsp;&emsp;
+                <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
             </div>
         </div>
-
-<div  style="text-align: center">
-            <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Next</button>&emsp;&emsp;&emsp;&emsp;
-        
-            <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
-        
-</div>
-
-
+    </form>
 
 @endsection
 

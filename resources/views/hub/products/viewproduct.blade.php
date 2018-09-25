@@ -1,15 +1,17 @@
 @extends('hub.layout.master')
-@section('products')
+
+@section('product')
     is-active
 @endsection
 
-@section('addproduct')
+@section('viewproduct')
     is-active
 @endsection
 
 @section('header')
-    Add product
+    View product
 @endsection
+
 @section('content')
 <div class="row">
         <div class="col-12">
@@ -32,12 +34,12 @@
                    @foreach($products as $product)
                         <tr class="c-table__row">
                             <td class="c-table__cell">{{$product->parcelname}}</td>
-                            <th class="c-table__cell">{{$product->dimensions}}</th>
-                            <th class="c-table__cell">{{$product->parcelweight}}</th>
-                            <th class="c-table__cell">{{$product->pickupaddresss}}</th>
-                            <th class="c-table__cell">{{$product->dropoffaddress}}</th>
-                            <th class="c-table__cell">{{$product->pickupdate}}</th>
-                            <th class="c-table__cell">{{$product->pickuptime}}</th>
+                            <td class="c-table__cell">{{$product->dimensions}}</td>
+                            <td class="c-table__cell">{{$product->parcelweight}}</td>
+                            <td class="c-table__cell">{{$product->pickupaddresss}}</td>
+                            <td class="c-table__cell">{{$product->dropoffaddress}}</td>
+                            <td class="c-table__cell">{{$product->pickupdate}}</td>
+                            <td class="c-table__cell">{{$product->pickuptime}}</td>
                             <td class="c-table__cell">
                                 <div class="c-dropdown dropdown">
                                     <a href="#" class="c-btn c-btn--info has-icon dropdown-toggle" id="dropdownMenuTable1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
