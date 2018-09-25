@@ -1,5 +1,6 @@
 @extends('commutter.layout.master')
-@section('receivers')
+
+@section('receiver')
     is-active
 @endsection
 
@@ -10,12 +11,11 @@
 @section('header')
     Add Receiver
 @endsection
+
 @section('content')
     <form action="{{ route('commutter.addreceiver') }}" method="POST">
         {{ csrf_field() }}
-
         <h3>Add Receiver Details</h3>
-
         <div class="c-card">
             <div class="row u-mb-medium">
                 <div class="col-lg-6 u-mb-xsmall">
@@ -37,14 +37,11 @@
                     </div>
                 </div><br><br>
             </div>
-        <div  style="text-align: center">
-            <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Add</button>&emsp;&emsp;&emsp;&emsp;
-
-            <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
-
+            <div  style="text-align: center">
+                <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Add</button>&emsp;&emsp;&emsp;&emsp;
+                <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
+            </div>
         </div>
-        </div>
-
         <div>
             <a class="c-btn c-btn--info u-mb-xsmall" style="position:absolute;top:80px;right:170px" onclick="goBack()">Go back</a>
         </div>
@@ -54,17 +51,17 @@
 
 
 @section('script')
-            <script>
-                function goBack() {
-                    window.history.back();
-                }
+<script>
+    function goBack() {
+        window.history.back();
+    }
 
 
-        function isNumberKey(evt){
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
-                return false;
-            return true;
-        }
-    </script>
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>
 @endsection
