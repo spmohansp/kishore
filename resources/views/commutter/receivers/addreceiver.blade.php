@@ -27,7 +27,7 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input2">Receiver's phone</label>
-                        <input class="c-input" id="input2"  name="receiverphone" required type="text">
+                        <input class="c-input" id="input2"  name="receiverphone"  onkeypress="return  isNumberKey(event)" maxlength="10"  required type="text">
                     </div>
                 </div><br><br>
                 <div class="col-lg-6 u-mb-xsmall">
@@ -36,24 +36,17 @@
                         <input class="c-input" id="input4"  type="text"  name="email"  required >
                     </div>
                 </div><br><br>
-
-
             </div>
-        </div>
-
         <div  style="text-align: center">
             <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Add</button>&emsp;&emsp;&emsp;&emsp;
 
             <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
 
-
-
-
+        </div>
         </div>
 
-
         <div>
-            <a class="c-btn c-btn--info u-mb-xsmall" style="position:absolute;top:50px;right:100px" onclick="goBack()">Go back</a>
+            <a class="c-btn c-btn--info u-mb-xsmall" style="position:absolute;top:80px;right:170px" onclick="goBack()">Go back</a>
         </div>
     </form>
 
@@ -65,7 +58,13 @@
                 function goBack() {
                     window.history.back();
                 }
-            </script>
 
 
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
 @endsection
