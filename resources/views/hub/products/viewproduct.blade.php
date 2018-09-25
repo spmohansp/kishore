@@ -29,15 +29,15 @@
                     </thead>
 
                     <tbody>
-                   @foreach($product as $addproduct)
+                   @foreach($products as $product)
                         <tr class="c-table__row">
-                            <td class="c-table__cell">{{$addproduct->parcelname}}</td>
-                            <th class="c-table__cell">{{$addproduct->dimensions}}</th>
-                            <th class="c-table__cell">{{$addproduct->parcelweight}}</th>
-                            <th class="c-table__cell">{{$addproduct->pickupaddresss}}</th>
-                            <th class="c-table__cell">{{$addproduct->dropoffaddress}}</th>
-                            <th class="c-table__cell">{{$addproduct->pickupdate}}</th>
-                            <th class="c-table__cell">{{$addproduct->pickuptime}}</th>
+                            <td class="c-table__cell">{{$product->parcelname}}</td>
+                            <th class="c-table__cell">{{$product->dimensions}}</th>
+                            <th class="c-table__cell">{{$product->parcelweight}}</th>
+                            <th class="c-table__cell">{{$product->pickupaddresss}}</th>
+                            <th class="c-table__cell">{{$product->dropoffaddress}}</th>
+                            <th class="c-table__cell">{{$product->pickupdate}}</th>
+                            <th class="c-table__cell">{{$product->pickuptime}}</th>
                             <td class="c-table__cell">
                                 <div class="c-dropdown dropdown">
                                     <a href="#" class="c-btn c-btn--info has-icon dropdown-toggle" id="dropdownMenuTable1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
@@ -45,10 +45,10 @@
                                     </a>
 
                                     <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuTable1">
-                                        <form action="{{ route('hub.deleteproduct', $addproduct->id) }}" method="POST">
+                                        <form action="{{ route('hub.deleteproduct', $product->id) }}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <a class="c-dropdown__item dropdown-item" href="{{ route('hub.editproduct', $addproduct->id) }}">Edit</a>
+                                            <a class="c-dropdown__item dropdown-item" href="{{ route('hub.editproduct', $product->id) }}">Edit</a>
                                             <button class="c-dropdown__item dropdown-item" onclick="return confirm('Are you sure?')">Delete</button>
                                         </form>
                                     </div>

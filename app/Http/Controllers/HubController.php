@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\product;
-use App\receiver;
 
 
 class HubController extends Controller
@@ -27,46 +26,43 @@ class HubController extends Controller
         $product->pickupdate = request('pickupdate');
         $product->pickuptime = request('pickuptime');
         $product->save();
-        return back();
+        return back()->with('success', 'Product Added Successfully');
     }
+
+    public function viewproduct(){
+        $products = product::all();
+        return view('hub.products.viewproduct',compact('products'));
+    }
+
      public function showEditproduct($id){
-        $addproduct = addproduct::findOrfail($id);
-        
-        return view('hub.products.editproduct', compact('addproduct'));
+        $product = product::findOrfail($id);
+        return view('hub.products.editproduct', compact('product'));
+    }
+
+    public function updateproduct($id){
+        $product = product :: findOrfail($id);
+        $product->parcelname = request('parcelname');
+        $product->dimensions = request('dimensions');
+        $product->parcelweight = request('parcelweight');
+        $product->pickupaddresss = request('pickupaddresss');
+        $product->dropoffaddress = request('dropoffaddress');
+        $product->pickupdate = request('pickupdate');
+        $product->pickuptime = request('pickuptime');
+        $product ->save();
+        return back()->with('update', 'Product Updated Successfully');
     }
 
     public function deleteproduct($id){
         try{
 
             $Request = product::findOrfail($id);
-
-            $Request->delete();
+            $Request->delete()->with('danger','Product Deleted Successfully');
             return back();
         } 	catch (Exception $e){
-            return back();
+            return back()->with('danger','Product Deleted Successfully');
         }
     }
 
-    public function updateproduct($id){
-        $addproduct = addproduct :: findOrfail($id);
-        $addproduct->parcelname = request('parcelname');
-        $addproduct->dimensions = request('dimensions');
-        $addproduct->parcelweight = request('parcelweight');
-        $addproduct->pickupaddresss = request('pickupaddresss');
-        $addproduct->dropoffaddress = request('dropoffaddress');
-        $addproduct->pickupdate = request('pickupdate');
-        $addproduct->pickuptime = request('pickuptime');
-        $addproduct ->save();
-        return back();
-    }
 
-
-
-    public function viewproduct(){
-        $product = product::all();
-        return view('hub.products.viewproduct',compact('product'));
-    }
-
-   
  }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\receiver;
+use App\product;
 
 
 class commuttercontroller extends Controller
@@ -25,39 +26,34 @@ class commuttercontroller extends Controller
         $receiver->receiverphone = request('receiverphone');
         $receiver->email = request('email');
         $receiver->save();
-        return back();
+        return back()->with('success', 'Receiver Added Successfully');
     }
 
     public function showEditreceiver($id)
     {
         $receiver = receiver::findOrfail($id);
-
         return view('commutter.receivers.editreceiver', compact('receiver'));
     }
 
-    public function deletereceiver($id)
-    {
-        try {
-
+    public function deletereceiver($id){
+        try{
             $Request = receiver::findOrfail($id);
-
             $Request->delete();
-            return back();
-        } catch (Exception $e) {
-            return back();
+            return back()->with('danger','Reciever Deleted Successfully');
+        } catch (Exception $e){
+            return back()->with('danger','Reciever Deleted Successfully');
         }
     }
 
     public function updatereceiver($id)
     {
         $addreceiver = addreceiver:: findOrfail($id);
-        $addreceiver->parcelname = request('receivername');
-        $addreceiver->dimensions = request('receiverphone');
-        $addreceiver->parcelweight = request('email');
+        $addreceiver->receivername  = request('receivername');
+        $addreceiver->receiverphone = request('receiverphone');
+        $addreceiver->email = request('email');
         $addreceiver->save();
-        return back();
+        return back()->with('update', 'Receiver Updated Successfully');
     }
-
 
     public function viewreceiver()
     {
@@ -65,13 +61,11 @@ class commuttercontroller extends Controller
         return view('commutter.receivers.viewreceiver', compact('receivers'));
     }
 
+    public function showhome()
+    {
+        $products = product::all();
+        return view('commutter.home',compact('products'));
+    }
 
-
-    
-
-    
-
-
-    
  
 }
