@@ -13,7 +13,14 @@
       <p class="flip">
           {{$product->parcelname}}
       </p>
-<br><br>
+      <div class="panel" style="display: block;">
+         <div class="container">
+            <div class="row">
+
+            </div>
+         </div>
+      </div>
+               <br><br>
    @endforeach
 @endsection
 
