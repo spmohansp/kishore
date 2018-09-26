@@ -36,7 +36,7 @@
                         <input class="c-input" id="input4"  type="text"  name="email"  required >
                     </div>
                 </div><br><br>
-            </div>
+
             <div  style="text-align: center">
                 <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Add</button>&emsp;&emsp;&emsp;&emsp;
                 <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
@@ -64,4 +64,5 @@
         return true;
     }
 </script>
+
 @endsection

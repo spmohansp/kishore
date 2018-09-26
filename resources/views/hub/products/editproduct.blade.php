@@ -70,10 +70,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+
 
         <div  style="text-align: center">
             <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Update</button>&emsp;&emsp;&emsp;&emsp;
+        </div>
         </div>
     </form>
 
@@ -102,8 +103,8 @@
     $(document).ready(function() {
         $('.timepicker').timepicker({
             timeFormat: 'HH:mm',
-            interval: 60,
-            defaultTime: '10',
+            interval: 50,
+
         });
     });
 </script>
