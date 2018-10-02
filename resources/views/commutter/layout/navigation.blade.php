@@ -11,6 +11,22 @@
                     </a>
                 </li>
             </ul>
+
+            <li class="c-sidebar__item has-submenu">
+                <a class="c-sidebar__link @yield('receiver')" data-toggle="collapse" href="#activeorder" aria-expanded="false" aria-controls="sidebar-submenu">
+                    <i class="c-sidebar__icon feather icon-user"></i>Active Order
+                </a>
+
+                <div>
+                    <ul class="c-sidebar__list collapse" id="activeorder">
+                        <li><a class="c-sidebar__link @yield('order')" href="{{ url('commutter/showMap') }}">order</a></li>
+                        <li><a class="c-sidebar__link @yield('viewreceiver')" href="{{ url('commutter/viewreceiver') }}">View Receiver</a></li>
+
+                    </ul>
+                </div>
+            </li>
+
+
             <li class="c-sidebar__item has-submenu">
                 <a class="c-sidebar__link @yield('receiver')" data-toggle="collapse" href="#receiverMenu" aria-expanded="false" aria-controls="sidebar-submenu">
                     <i class="c-sidebar__icon feather icon-user"></i>Receiver

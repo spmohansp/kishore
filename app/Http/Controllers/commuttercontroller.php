@@ -59,4 +59,22 @@ class commuttercontroller extends Controller
         $products = product::all();
         return view('commutter.home',compact('products'));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function showMap(){
+       $products = product::all();
+        return view('commutter.activeOrder.map',compact('products'));
+    }
 }

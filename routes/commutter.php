@@ -10,3 +10,10 @@ Route::get('/viewreceiver', 'commuttercontroller@viewreceiver');
 Route::get('/viewreceiver/{id}/edit', 'commuttercontroller@showEditreceiver')->name('editreceiver');
 Route::post('/viewreceiver/{id}/edit', 'commuttercontroller@updatereceiver')->name('updatereceiver');
 Route::delete('/viewreceiver/{id}/delete', 'commuttercontroller@deletereceiver')->name('deletereceiver');
+
+
+
+
+
+
+Route::get('/showMap', 'commuttercontroller@showMap');
