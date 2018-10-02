@@ -45,13 +45,13 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Address </label>
-                        <input class="c-input" id="input4"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddresss"  required >
+                        <input class="c-input" id="pickupaddresss"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddresss"  required >
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Dropoff Address</label>
-                        <input class="c-input" id="input4" placeholder="Enter your dropoffaddress"  name="dropoffaddress"   required type="text">
+                        <input class="c-input" id="dropoffaddress" placeholder="Enter your dropoffaddress"  name="dropoffaddress"   required type="text">
                     </div>
                 </div><br><br>
                 <div class="col-lg-6 u-mb-xsmall">
@@ -79,33 +79,47 @@
 
 
 @section('script')
-                <script>
-                    function isNumberKey(evt){
-                        var charCode = (evt.which) ? evt.which : event.keyCode
-                        if (charCode > 31 && (charCode < 48 || charCode > 57))
-                            return false;
-                        return true;
-                    }
-                </script>
-                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-                <script>
-                    $( function() {
-                        $( "#datepicker" ).datepicker();
-                    } );
-                </script>
+    <script>
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
 
-                <script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-                <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                        $('.timepicker').timepicker({
-                            timeFormat: 'HH:mm',
-                            interval: 60,
-                            defaultTime: '10',
-                        });
-                    });
-                </script>
+    <script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.timepicker').timepicker({
+                timeFormat: 'HH:mm',
+                interval: 60,
+                defaultTime: '10',
+            });
+        });
+    </script>
 
-
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&libraries=places&language=en-AU"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIun_91OJDETSmXfb2EYqMcRg966ls6dw&callback=initMap"
+   async defer></script> -->
+<script>
+    var autocomplete = new google.maps.places.Autocomplete($("#pickupaddresss")[0], {});
+    var autocomplete1 = new google.maps.places.Autocomplete($("#dropoffaddress")[0], {});
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        // console.log(place.address_components);
+    });
+    google.maps.event.addListener(autocomplete1, 'place_changed', function() {
+        var place = autocomplete1.getPlace();
+        // console.log(place.address_components);
+    });
+</script>
 @endsection

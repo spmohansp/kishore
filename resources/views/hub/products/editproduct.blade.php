@@ -46,13 +46,13 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Address </label>
-                        <input class="c-input" id="input4"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddresss" value = "{{ $product -> pickupaddresss }}" required >
+                        <input class="c-input" id="pickupaddresss"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddresss" value = "{{ $product -> pickupaddresss }}" required >
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Dropoff Address</label>
-                        <input class="c-input" id="input4" placeholder="Enter your dropoffaddress"  name="dropoffaddress"  value = "{{ $product -> dropoffaddress }}" required type="text">
+                        <input class="c-input" id="dropoffaddress" placeholder="Enter your dropoffaddress"  name="dropoffaddress"  value = "{{ $product -> dropoffaddress }}" required type="text">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
@@ -106,6 +106,23 @@
             interval: 50,
 
         });
+    });
+</script>
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&libraries=places&language=en-AU"></script>
+
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&sensor=true&libraries=places" type="text/javascript"></script> -->
+<script>
+    var autocomplete = new google.maps.places.Autocomplete($("#pickupaddresss")[0], {});
+    var autocomplete1 = new google.maps.places.Autocomplete($("#dropoffaddress")[0], {});
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        // console.log(place.address_components);
+    });
+    google.maps.event.addListener(autocomplete1, 'place_changed', function() {
+        var place = autocomplete1.getPlace();
+        // console.log(place.address_components);
     });
 </script>
 
