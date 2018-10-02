@@ -66,20 +66,15 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/hub') }}">Hub</a>
-                        <a href="{{ url('/commutter') }}">Commutter</a>
-                    @endauth
-                </div>
-            @endif
+
 
             <div class="content">
                 <div class="title m-b-md">
                     Last Mile App
+                </div>
+                <div  style="text-align: center">
+                    <button class="btn btn-success"><a href="{{ url('/hub') }}" >Hub</a></button>&emsp;&emsp;&emsp;&emsp;
+                    <button class="btn btn-primary"><a href="{{ url('/commutter') }}" >Commuter</a></button>
                 </div>
 
               

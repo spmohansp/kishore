@@ -16,13 +16,14 @@
 
             <li class="c-sidebar__item has-submenu">
                 <a class="c-sidebar__link @yield('product')" data-toggle="collapse" href="#sidebar-submenu1" aria-expanded="false" aria-controls="sidebar-submenu">
-                    <i class="c-sidebar__icon feather icon-user "></i>Product
+                    <i class="c-sidebar__icon feather icon-user "></i>Orders
                 </a>
 
                 <div>
                     <ul class="c-sidebar__list collapse" id="sidebar-submenu1">
-                        <li><a class="c-sidebar__link @yield('addproduct')" href="{{ url('hub/addproduct') }}">Add Product</a></li>
-                        <li><a class="c-sidebar__link @yield('viewproduct')" href="{{ url('hub/viewproduct') }}">View Product</a></li>
+                        <li><a class="c-sidebar__link @yield('addorder')" href="{{ url('hub/addproduct') }}">Add Order</a></li>
+                        <li><a class="c-sidebar__link @yield('activeorders')" href="{{ url('hub/viewproduct') }}">Active Orders</a></li>
+                        <li><a class="c-sidebar__link @yield('myorders')" href="{{ url('hub/myorders') }}">My Orders</a></li>
                     </ul>
                 </div>
             </li>

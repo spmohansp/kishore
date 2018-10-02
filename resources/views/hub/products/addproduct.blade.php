@@ -4,18 +4,17 @@
     is-active
 @endsection
 
-@section('addproduct')
+@section('addorder')
     is-active
 @endsection
 
 @section('header')
-    Add product
+    Add Order
 @endsection
 
 @section('content')
     <form action="{{ route('hub.addproduct') }}" method="POST">
         {{ csrf_field() }}
-        <h3>Add Parcel Details</h3>
         <div class="c-card">
             <div class="row u-mb-medium">
                 <div class="col-lg-6 u-mb-xsmall">
@@ -69,8 +68,8 @@
                 </div>
             </div>
             <div  style="text-align: center">
-                <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Next</button>&emsp;&emsp;&emsp;&emsp;
-                <button class="c-btn c-btn--success u-mb-xsmall" type="reset">Cancel</button>
+                <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Save</button>&emsp;&emsp;&emsp;&emsp;
+                <button class="c-btn c-btn--warning u-mb-xsmall" type="reset">Cancel</button>
             </div>
         </div>
     </form>
