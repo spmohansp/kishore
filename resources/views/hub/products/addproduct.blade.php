@@ -45,13 +45,18 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Address </label>
-                        <input class="c-input" id="pickupaddresss"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddresss"  required >
+                        <input class="c-input" id="pickupaddress"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddress"  required >
+                         <input class="c-input" id="pickupaddresslatitude" type="hidden" name="pickupaddresslatitude"  required >
+                         <input class="c-input" id="pickupaddresslongitude" type="hidden" name="pickupaddresslongitude"  required >
+
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Dropoff Address</label>
                         <input class="c-input" id="dropoffaddress" placeholder="Enter your dropoffaddress"  name="dropoffaddress"   required type="text">
+                         <input class="c-input" id="dropoffaddresslatitude" type="hidden" name="dropoffaddresslatitude"  required >
+                         <input class="c-input" id="dropoffaddresslongitude" type="hidden" name="dropoffaddresslongitude"  required >
                     </div>
                 </div><br><br>
                 <div class="col-lg-6 u-mb-xsmall">
@@ -64,6 +69,12 @@
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Time</label>
                         <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickuptime" onkeypress="return  isNumberKey(event)"  required>
+                    </div>
+                </div>
+                 <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Price</label>
+                        <input class="c-input" id="input4" placeholder="Enter price" name="price"   required>
                     </div>
                 </div>
             </div>
@@ -111,15 +122,21 @@
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIun_91OJDETSmXfb2EYqMcRg966ls6dw&callback=initMap"
    async defer></script> -->
 <script>
-    var autocomplete = new google.maps.places.Autocomplete($("#pickupaddresss")[0], {});
+    var autocomplete = new google.maps.places.Autocomplete($("#pickupaddress")[0], {});
     var autocomplete1 = new google.maps.places.Autocomplete($("#dropoffaddress")[0], {});
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
         var place = autocomplete.getPlace();
-        // console.log(place.address_components);
+        // console.log(place);
+            // get lat
+            var lat = $('#pickupaddresslatitude').val(place.geometry.location.lat());
+            var lng = $('#pickupaddresslongitude').val(place.geometry.location.lng());
+            console.log(place.geometry.location.lat());
     });
     google.maps.event.addListener(autocomplete1, 'place_changed', function() {
-        var place = autocomplete1.getPlace();
+        var place1 = autocomplete1.getPlace();
         // console.log(place.address_components);
+            var lat = $('#dropoffaddresslatitude').val(place1.geometry.location.lat());
+            var lng = $('#dropoffaddresslongitude').val(place1.geometry.location.lng());
     });
 </script>
 @endsection

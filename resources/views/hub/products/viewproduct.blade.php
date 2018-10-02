@@ -26,6 +26,7 @@
                         <th class="c-table__cell c-table__cell--head">Dropoff Address</th>
                         <th class="c-table__cell c-table__cell--head">Pickup Date</th>
                         <th class="c-table__cell c-table__cell--head">Pickup Time</th>
+                        <th class="c-table__cell c-table__cell--head">Price</th>
                         <th class="c-table__cell c-table__cell--head">Actions</th>
                     </tr>
                     </thead>
@@ -36,10 +37,12 @@
                             <td class="c-table__cell">{{$product->parcelname}}</td>
                             <td class="c-table__cell">{{$product->dimensions}}</td>
                             <td class="c-table__cell">{{$product->parcelweight}}</td>
-                            <td class="c-table__cell">{{$product->pickupaddresss}}</td>
+                            <td class="c-table__cell">{{$product->pickupaddress}}</td>
                             <td class="c-table__cell">{{$product->dropoffaddress}}</td>
                             <td class="c-table__cell">{{$product->pickupdate}}</td>
                             <td class="c-table__cell">{{$product->pickuptime}}</td>
+                            <td class="c-table__cell">{{$product->price}}</td>
+
                             <td class="c-table__cell">
                                 <div class="c-dropdown dropdown">
                                     <a href="#" class="c-btn c-btn--info has-icon dropdown-toggle" id="dropdownMenuTable1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">

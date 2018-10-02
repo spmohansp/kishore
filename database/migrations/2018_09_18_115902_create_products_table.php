@@ -18,10 +18,16 @@ class CreateProductsTable extends Migration
             $table->string('parcelname');
             $table->string('dimensions');
             $table->string('parcelweight');
-            $table->string('pickupaddresss');
+            $table->string('pickupaddress');
             $table->string('dropoffaddress');
+            $table->string('pickupaddresslatitude');
+            $table->string('pickupaddresslongitude');
+            $table->string('dropoffaddresslatitude');
+            $table->string('dropoffaddresslongitude');
             $table->string('pickupdate');
             $table->string('pickuptime');
+            $table->string('price');
+            $table->string('status')->default('open');
             $table->timestamps();
         });
     }
