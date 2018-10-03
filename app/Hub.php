@@ -38,4 +38,9 @@ class Hub extends Authenticatable
     {
         $this->notify(new HubResetPassword($token));
     }
+
+    public function products(){
+        return $this->hasMany(product::class, 'hubId', 'id');
+    }
+
 }

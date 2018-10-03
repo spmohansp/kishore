@@ -18,5 +18,10 @@ class commuterLoginSeeder extends Seeder
             'password' => bcrypt('123456'),
            
         ]);
+        DB::table('hubs')->insert([
+            'name' => 'Demo',
+            'email' => 'admin@demo.com',
+            'password' => bcrypt('123456'),
+        ]);
     }
 }

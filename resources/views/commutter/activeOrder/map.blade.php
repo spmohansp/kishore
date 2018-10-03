@@ -1,15 +1,15 @@
 @extends('commutter.layout.master')
 
-@section('receiver')
+@section('Orders')
     is-active
 @endsection
 
-@section('addreceiver')
+@section('liveMap')
     is-active
 @endsection
 
 @section('header')
-    Map
+    Live Map
 @endsection
 
 @section('content')
@@ -61,7 +61,7 @@
 		    // }
 
 		if(navigator.geolocation) {
-		   navigator.geolocation.getCurrentPosition(showLocation, options);
+		   navigator.geolocation.watchPosition(showLocation);
 		} else {
 		   alert("Sorry,Something Went Wrong");
 		}

@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\receiver;
 use App\product;
+use DB;
+
 
 
 class commuttercontroller extends Controller
@@ -76,5 +78,60 @@ class commuttercontroller extends Controller
     public function showMap(){
        $products = product::all();
         return view('commutter.activeOrder.map',compact('products'));
+    }
+
+
+
+
+    public function liveOrder(){
+            // $address='Salem, Tamil Nadu, India';
+            // if(!empty($address)){
+            //         //Formatted address
+            //         $formattedAddr = str_replace(' ','+',$address);
+            //         //Send request and receive json data by address
+            //          $geocodeFromAddr = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&address='.$formattedAddr.'&sensor=false'); 
+            //         $output = json_decode($geocodeFromAddr);
+            //         //Get latitude and longitute from json data
+            //         $data['latitude']  = $output->results[0]->geometry->location->lat; 
+            //         $data['longitude'] = $output->results[0]->geometry->location->lng;
+            //         //Return latitude and longitude of the given address
+            //         return $data;
+            //     }else{
+            //         return false;   
+            //     }
+        return view('commutter.activeOrder.orderList');
+    }
+
+    public function getLiveData(){
+        $latitude=request()->latidude;
+        $longitude=request()->longitude;
+        $liveData= product::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( pickupaddresslatitude ) ) * cos( radians( pickupaddresslongitude ) - radians('.$longitude.') ) + sin( radians('.$latitude.') ) * sin( radians( pickupaddresslatitude ) ) ) ) AS distance'))->having('distance', '<', 100)->where([['status','open']])->orderBy('distance')->get();
+        // return '<p>'.$liveData.'</p>';
+
+        if(!empty($liveData)){
+            
+            $finalData =' <table style="width:100%" border="1">
+                <thead>
+                <tr>
+                    <th>Parcel Name</th>
+                    <th>Parcel Weight</th>
+                    <th>Pick up Address</th>
+                    <th>Drop off Address</th>
+                    <th>Pickup Address Distance</th>
+                    <th>Pick up Time</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>';
+            foreach ($liveData as $key => $value) {
+                $finalData=$finalData.'<tr><td>'.$value->parcelname.'</td><td>'.$value->parcelweight.'</td><td>'.$value->pickupaddress.'</td><td>'.$value->dropoffaddress.'</td><td>'.round($value->distance).' KM</td><td>'.$value->pickuptime.'</td><td>pickup</td></tr>';
+            }
+
+            return $finalData.'</tbody></table>';
+
+
+        }else{
+            return 'No Order Found';
+        }
     }
 }

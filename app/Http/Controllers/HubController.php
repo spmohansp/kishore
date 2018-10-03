@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\product;
+use Illuminate\Support\Facades\Auth; 
 
 
 class HubController extends Controller
@@ -28,6 +29,7 @@ class HubController extends Controller
         $product->dropoffaddresslatitude = request('dropoffaddresslatitude');
         $product->dropoffaddresslongitude = request('dropoffaddresslongitude');
         $product->price = request('price');
+        $product->hubId = Auth::user()->id;
         $product->pickupdate = request('pickupdate');
         $product->pickuptime = request('pickuptime');
         $product->save();

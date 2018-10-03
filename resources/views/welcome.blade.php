@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Styles -->
         <style>
             html, body {
@@ -73,8 +73,8 @@
                     Last Mile App
                 </div>
                 <div  style="text-align: center">
-                    <button class="btn btn-success"><a href="{{ url('/hub') }}" >Hub</a></button>&emsp;&emsp;&emsp;&emsp;
-                    <button class="btn btn-primary"><a href="{{ url('/commutter') }}" >Commuter</a></button>
+                    <a href="{{ url('/hub') }}"><button class="btn btn-success btn-sm">Hub</button></a>&emsp;&emsp;&emsp;&emsp;
+                    <a href="{{ url('/commutter') }}" ><button class="btn btn-primary btn-sm">Commuter</button></a>
                 </div>
 
               

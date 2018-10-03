@@ -9,56 +9,13 @@
 @endsection
 
 @section('content')
-   @foreach($products as $product)
-      <p class="flip">
-          {{$product->parcelname}}
-      </p>
-      <div class="panel" style="display: block;">
-         <div class="container">
-            <div class="row">
-
-            </div>
-         </div>
-      </div>
-               <br><br>
-   @endforeach
+  Dashboard
 @endsection
 
 @section('style')
-   <style type="text/css">
-      div.panel,p.flip
-      {
-         line-height: 30px;
-         margin:auto;
-         font-size:16px;
-         padding:5px;
-         text-align:center;
-         background:#555;
-         border:solid 1px #666;
-         color:#ffffff;
-         border-radius:3px;
-         user-select:none
-      }
-      div.panel
-      {
-         display:none;
-         background: white;
-         text-align:left;
-         color:black;
-      }
-      p.flip
-      {
-         cursor:pointer;
-      }
-   </style>
+
 @endsection
 
 @section('script')
-   <script>
-       $(document).ready(function(){
-           $(".flip").click(function(){
-               $(".panel").toggle();
-           });
-       });
-   </script>
+
 @endsection

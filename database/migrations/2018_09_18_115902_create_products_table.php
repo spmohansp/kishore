@@ -27,6 +27,8 @@ class CreateProductsTable extends Migration
             $table->string('pickupdate');
             $table->string('pickuptime');
             $table->string('price');
+            $table->integer('hubId')->unsigned();
+            $table->foreign('hubId')->references('id')->on('hubs');
             $table->string('status')->default('open');
             $table->timestamps();
         });
