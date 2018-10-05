@@ -107,7 +107,7 @@ class commuttercontroller extends Controller
     public function getLiveData(){
         $latitude=request()->latidude;
         $longitude=request()->longitude;
-        $liveData= product::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( pickupaddresslatitude ) ) * cos( radians( pickupaddresslongitude ) - radians('.$longitude.') ) + sin( radians('.$latitude.') ) * sin( radians( pickupaddresslatitude ) ) ) ) AS distance'))->having('distance', '<', 105)->where([['status','open']])->orderBy('distance')->get();
+        $liveData= product::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( pickupaddresslatitude ) ) * cos( radians( pickupaddresslongitude ) - radians('.$longitude.') ) + sin( radians('.$latitude.') ) * sin( radians( pickupaddresslatitude ) ) ) ) AS distance'))->having('distance', '<', 100)->where([['status','open']])->orderBy('distance')->get();
         // return '<p>'.$liveData.'</p>';
 
         if(!empty($liveData)){
@@ -156,5 +156,24 @@ class commuttercontroller extends Controller
     public function OrderMapLocation($id){
         $products = product::findOrfail($id);
         return view('commutter.activeOrder.orderMap',compact('products'));
+    }
+
+    // send status
+    public function updateStatus($id){
+        $products = product::findOrfail($id);
+        return view('commutter.activeOrder.updateStatus',compact('products'));
+    }
+
+    public function updateProdtctStatus($id){
+        $products = product::findOrfail($id);
+        $products->status=request()->status;
+        $products->save();
+        if(request()->status=='completed'){
+            $orders = order::where([['productId',$id]])->first();
+            $orders->status=1;
+            $orders->save();
+        }
+        return back()->with('success','Product Status Updated Successfully!!');
+
     }
 }

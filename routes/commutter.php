@@ -28,5 +28,8 @@ Route::get('ActiveOrder', 'commuttercontroller@ActiveOrder');
 Route::get('OrderMapLocation/{id}/show', 'commuttercontroller@OrderMapLocation')->name('OrderMapLocation');
 
 
+Route::get('updateStatus/{id}/update', 'commuttercontroller@updateStatus')->name('updateStatus');
+Route::post('updateProdtctStatus/{id}/update', 'commuttercontroller@updateProdtctStatus')->name('updateProdtctStatus');
+
 
 

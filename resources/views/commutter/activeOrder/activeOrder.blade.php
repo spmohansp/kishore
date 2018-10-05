@@ -55,7 +55,7 @@
                                     </a>
 
                                     <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuTable1">
-                                        <a class="c-dropdown__item dropdown-item" href="{{route('commutter.OrderMapLocation',$orders->products->id)}}">Update Status</a>
+                                        <a class="c-dropdown__item dropdown-item" href="{{route('commutter.updateStatus',$orders->products->id)}}">Update Status</a>
                                         <a class="c-dropdown__item dropdown-item" href="{{route('commutter.OrderMapLocation',$orders->products->id)}}">Map Location</a>
                                     </div>
                                 </div>

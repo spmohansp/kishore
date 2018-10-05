@@ -33,6 +33,7 @@
                     </thead>
                     <tbody>
                    @foreach(Auth::user()->products as $product)
+                   @if($product->status!='completed')
                         <tr class="c-table__row">
                             <td class="c-table__cell">{{$product->parcelname}}</td>
                             <td class="c-table__cell">{{$product->dimensions}}</td>
@@ -60,6 +61,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endif()
                  @endforeach
                     </tbody>
                 </table>

@@ -17,3 +17,6 @@ Route::get('/viewproduct', 'HubController@viewproduct');
 Route::get('/product/{id}/edit', 'HubController@showEditproduct')->name('editproduct');
 Route::post('/product/{id}/edit', 'HubController@updateproduct')->name('updateproduct');
 Route::delete('/product/{id}/delete', 'HubController@deleteproduct')->name('deleteproduct');
+
+
+Route::get('/myorders', 'HubController@myorders');

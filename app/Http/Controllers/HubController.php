@@ -86,6 +86,10 @@ class HubController extends Controller
         }
     }
 
+    public function myorders(){
+        return view('hub.products.myOrders');
+    }
+
 
  }
 
