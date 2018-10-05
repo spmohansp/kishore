@@ -28,7 +28,7 @@
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input2">Pickup Address</label>
-                        <input class="c-input" id="input2" value="{{$products->pickupaddress}}" type="text">
+                        <input class="c-input" id="input2" value="{{$products->pickupaddress}}" type="text" readonly="">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
