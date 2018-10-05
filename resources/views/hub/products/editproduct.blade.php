@@ -129,25 +129,24 @@
 @endsection
 
 @section('script')
-<script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+<script type="text/javascript">
     function isNumberKey(evt){
         var charCode = (evt.which) ? evt.which : event.keyCode
         if (charCode > 31 && (charCode < 48 || charCode > 57))
             return false;
         return true;
     }
-</script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-    $( function() {
-        $( "#datepicker" ).datepicker();
-    } );
-</script>
 
-<script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<script type="text/javascript">
+    $(function() {
+        $( "#datepicker" ).datepicker({
+            minDate: 0
+        });
+    });
+
     $(document).ready(function() {
         $('.timepicker').timepicker({
             timeFormat: 'HH:mm',

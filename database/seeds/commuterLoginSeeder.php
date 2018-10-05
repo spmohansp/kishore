@@ -15,12 +15,16 @@ class commuterLoginSeeder extends Seeder
         DB::table('commutters')->insert([
             'name' => 'Demo',
             'email' => 'admin@demo.com',
+            'address' => 'salem',
+            'mobile' => '1234567890',
             'password' => bcrypt('123456'),
            
         ]);
         DB::table('hubs')->insert([
             'name' => 'Demo',
             'email' => 'admin@demo.com',
+            'address' => 'salem',
+            'mobile' => '1234567890',
             'password' => bcrypt('123456'),
         ]);
     }

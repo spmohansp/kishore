@@ -22,6 +22,7 @@
                         <!-- <li><a class="c-sidebar__link @yield('liveMap')" href="{{ url('commutter/showMap') }}">Live Location</a></li> -->
                         <li><a class="c-sidebar__link @yield('LiveOrder')" href="{{ url('commutter/liveOrder') }}">Live Order</a></li>
                         <li><a class="c-sidebar__link @yield('ActiveOrder')" href="{{ url('commutter/ActiveOrder') }}">Active Order</a></li>
+                        <li><a class="c-sidebar__link @yield('earnings')" href="{{ url('commutter/ActiveOrder') }}">Earnings</a></li>
                     </ul>
                 </div>
             </li>

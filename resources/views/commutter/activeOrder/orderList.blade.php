@@ -28,39 +28,37 @@
 @section('script')
 
 <script type="text/javascript">
-			if(navigator.geolocation) {
+		if(navigator.geolocation) {
 		   navigator.geolocation.watchPosition(showLocation);
 		} else {
 		   alert("Sorry,Something Went Wrong");
 		}
 		
-         function showLocation(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-            document.getElementById('latidude').value = latitude;
-            document.getElementById('longitude').value = longitude;
-         }
-
-
-
-        $(document).ready(function () {
-          setTimeout(function(){
-         		// $('#getData').on('click',function (e) {
-    				// e.preventDefault();
-           			var latidude = $('#latidude').val();
-           			var longitude = $('#longitude').val();
-      			    $.ajax({
-      					type : "get",
-      					url:'/commutter/getLiveData',
-      					data:{latidude:latidude,longitude:longitude},
-      					success:function(data){
-      						console.log(data);
-      						$('#tableData').html(data);
-      					}
-      				});
-      			// });
-         },2000); 
-        })
+   function showLocation(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      document.getElementById('latidude').value = latitude;
+      document.getElementById('longitude').value = longitude;
+   }
+    // GET LATITUDE
+  $(document).ready(function () {
+    setTimeout(function(){
+   		// $('#getData').on('click',function (e) {
+			// e.preventDefault();
+     			var latidude = $('#latidude').val();
+     			var longitude = $('#longitude').val();
+			    $.ajax({
+					type : "get",
+					url:'/commutter/getLiveData',
+					data:{latidude:latidude,longitude:longitude},
+					success:function(data){
+						console.log(data);
+						$('#tableData').html(data);
+					}
+				});
+			// });
+   },2000); 
+  })
 
       </script>
 @endsection

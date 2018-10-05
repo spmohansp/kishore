@@ -111,23 +111,39 @@ class commuttercontroller extends Controller
         // return '<p>'.$liveData.'</p>';
 
         if(!empty($liveData)){
-            
-            $finalData =' <table style="width:100%" border="1">
-                <thead>
-                <tr>
-                    <th>Parcel Name</th>
-                    <th>Parcel Weight</th>
-                    <th>Pick up Address</th>
-                    <th>Drop off Address</th>
-                    <th>Pickup Address Distance</th>
-                    <th>Pick up Time</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
+            $finalData ='<div class="row">
+        <div class="col-12">
+            <div class="c-table-responsive@wide">
+                <table class="c-table">
+                    <thead class="c-table__head">
+                    <tr class="c-table__row">
+                        <th class="c-table__cell c-table__cell--head">Parcel Name</th>
+                        <th class="c-table__cell c-table__cell--head">Parcel Weight</th>
+                        <th class="c-table__cell c-table__cell--head">Pickup Contact Person</th>
+                        <th class="c-table__cell c-table__cell--head">Parcel Contact Number</th>
+                        <th class="c-table__cell c-table__cell--head">Pickup Address</th>
+                        <th class="c-table__cell c-table__cell--head">Drop off Address</th>
+                        <th class="c-table__cell c-table__cell--head">Pickup Distance</th>
+                        <th class="c-table__cell c-table__cell--head">Pickup Date</th>
+                        <th class="c-table__cell c-table__cell--head">Pickup Time</th>
+                        <th class="c-table__cell c-table__cell--head">Price</th>
+                        <th class="c-table__cell c-table__cell--head">Actions</th>
+                    </tr>
+                    </thead>
                 <tbody>';
             foreach ($liveData as $key => $value) {
-                $finalData=$finalData.'<tr><td>'.$value->parcelname.'</td><td>'.$value->parcelweight.'</td><td>'.$value->pickupaddress.'</td><td>'.$value->dropoffaddress.'</td><td>'.round($value->distance).' KM</td><td>'.$value->pickupStartTime.' - '.$value->pickupEndTime.'</td><td>'.$value->price.'</td><td><a href="pickup/'.$value->id.'"><button class="btn btn-primary">Pickup</button></a></td></tr>';
+                $finalData=$finalData.'<tr>
+                        <td class="c-table__cell">'.$value->parcelname.'</td>
+                        <td class="c-table__cell">'.$value->parcelweight.'</td>
+                        <td class="c-table__cell">'.Auth::user()->name.'</td>
+                        <td class="c-table__cell">'.Auth::user()->mobile.'</td>
+                        <td class="c-table__cell">'.$value->pickupaddress.'</td>
+                        <td class="c-table__cell">'.$value->dropoffaddress.'</td>
+                        <td class="c-table__cell">'.round($value->distance).' KM</td>
+                        <td class="c-table__cell">'.$value->pickupdate.'</td>
+                        <td class="c-table__cell">'.$value->pickupStartTime.' - '.$value->pickupEndTime.'</td>
+                        <td class="c-table__cell">'.$value->price.'</td>
+                        <td class="c-table__cell"><a href="pickup/'.$value->id.'"><button class="c-btn c-btn--success u-mb-xsmall">Pick Up</button></a></td></tr>';
             }
             return $finalData.'</tbody></table>';
         }else{
