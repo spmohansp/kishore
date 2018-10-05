@@ -11,7 +11,7 @@ class commuterLoginSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('commutters')->truncate();
+        // DB::table('commutters')->truncate();
         DB::table('commutters')->insert([
             'name' => 'Demo',
             'email' => 'admin@demo.com',

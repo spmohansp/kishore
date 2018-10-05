@@ -43,6 +43,12 @@
                         </select>
                     </div>
                 </div>
+                   <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Pickup Date</label>
+                        <input class="c-input" id="datepicker" placeholder="Enter Pickupdate" name="pickupdate" value = "{{ $product -> pickupdate }}"onkeypress="return  isNumberKey(event)"  required type="text">
+                    </div>
+                </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Address </label>
@@ -60,18 +66,45 @@
                          <input class="c-input" id="dropoffaddresslongitude" type="hidden" value="{{ $product -> dropoffaddresslongitude }}"  name="dropoffaddresslongitude"  required >
                     </div>
                 </div>
-                <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
-                        <label class="c-field__label" for="input4">Pickup Date</label>
-                        <input class="c-input" id="datepicker" placeholder="Enter Pickupdate" name="pickupdate" value = "{{ $product -> pickupdate }}"onkeypress="return  isNumberKey(event)"  required type="text">
-                    </div>
+             
 
-                </div>
-                <br><br>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
-                        <label class="c-field__label" for="input4">Pickup Time</label>
-                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickuptime" value = "{{ $product -> pickuptime }}" onkeypress="return  isNumberKey(event)"   required type="text">
+                        <label class="c-field__label" for="input4">Dropoff Contact Name</label>
+                        <input class="c-input" id="dropoffContactName" placeholder="Enter your Dropoff Contact Name"  name="dropoffContactName" value = "{{ $product -> dropoffContactName }}" required type="text">
+                    </div>
+                </div>
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Dropoff Contact Number</label>
+                        <input class="c-input" id="dropoffContactNumber" placeholder="Enter your Dropoff Contact Number"  name="dropoffContactNumber" value = "{{ $product -> dropoffContactNumber }}" required type="number">
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Pickup Start Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickupStartTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> pickupStartTime }}" required>
+                    </div>
+                </div>
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Pickup End Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickupEndTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> pickupEndTime }}"  required>
+                    </div>
+                </div>
+                                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">DropOff Start Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffStartTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> dropOffStartTime }}"  required>
+                    </div>
+                </div>
+                                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">DropOff End Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffEndTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> dropOffEndTime }}"  required>
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
@@ -80,9 +113,13 @@
                         <input class="c-input" id="input4" placeholder="Enter price" value = "{{ $product -> price }}" name="price"   required>
                     </div>
                 </div>
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Status</label>
+                        <h3>{{ $product -> status }}</h3>
+                    </div>
+                </div>
             </div>
-
-
         <div  style="text-align: center">
             <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Update</button>&emsp;&emsp;&emsp;&emsp;
         </div>

@@ -9,7 +9,7 @@
 @endsection
 
 @section('header')
-    Orders
+    Live Orders
 @endsection
 
 
@@ -18,7 +18,7 @@
 
    <input type="hidden" name="" id="latidude">
    <input type="hidden" name="" id="longitude">
-   <button type="button" class="btn btn-success" id="getData">Load DATA</button>
+   <!-- <button type="button" class="btn btn-success" id="getData">Load DATA</button> -->
 
    <div id="tableData"></div>
 
@@ -39,29 +39,28 @@
             var longitude = position.coords.longitude;
             document.getElementById('latidude').value = latitude;
             document.getElementById('longitude').value = longitude;
-
          }
 
 
 
         $(document).ready(function () {
-     		$('#getData').on('click',function (e) {
-				e.preventDefault();
-     			var latidude = $('#latidude').val();
-     			var longitude = $('#longitude').val();
-			    $.ajax({
-					type : "get",
-					url:'/commutter/getLiveData',
-					data:{latidude:latidude,longitude:longitude},
-					success:function(data){
-						console.log(data);
-						$('#tableData').html(data);
-					}
-				});
-			});
+          setTimeout(function(){
+         		// $('#getData').on('click',function (e) {
+    				// e.preventDefault();
+           			var latidude = $('#latidude').val();
+           			var longitude = $('#longitude').val();
+      			    $.ajax({
+      					type : "get",
+      					url:'/commutter/getLiveData',
+      					data:{latidude:latidude,longitude:longitude},
+      					success:function(data){
+      						console.log(data);
+      						$('#tableData').html(data);
+      					}
+      				});
+      			// });
+         },2000); 
         })
-
-
 
       </script>
 @endsection

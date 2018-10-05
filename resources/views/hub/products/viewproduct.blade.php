@@ -40,7 +40,7 @@
                             <td class="c-table__cell">{{$product->pickupaddress}}</td>
                             <td class="c-table__cell">{{$product->dropoffaddress}}</td>
                             <td class="c-table__cell">{{$product->pickupdate}}</td>
-                            <td class="c-table__cell">{{$product->pickuptime}}</td>
+                            <td class="c-table__cell">{{$product->pickupStartTime}}</td>
                             <td class="c-table__cell">{{$product->price}}</td>
                             <td class="c-table__cell">{{$product->status}}</td>
                             <td class="c-table__cell">

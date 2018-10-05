@@ -66,11 +66,9 @@
 		   alert("Sorry,Something Went Wrong");
 		}
 
-		
          function showLocation(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-
 
             var map = new google.maps.Map(document.getElementById('map'), {
 		      zoom: 14,
@@ -84,7 +82,8 @@
 		    for (i = 0; i < locations.length; i++) {  
 		      marker = new google.maps.Marker({
 		        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-		        map: map
+		        type: 'info',
+		        map: map,
 		      });
 
 		      google.maps.event.addListener(marker, 'click', (function(marker, i) {
@@ -94,7 +93,7 @@
 		        }
 		      })(marker, i));
 		    }
-         }
+        }
 			
       </script>
 

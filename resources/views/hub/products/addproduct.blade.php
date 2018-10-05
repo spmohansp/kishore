@@ -44,6 +44,12 @@
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
+                        <label class="c-field__label" for="input4">Pickup Date</label>
+                        <input class="c-input" id="datepicker" placeholder="Enter pickupdate" name="pickupdate"onkeypress="return  isNumberKey(event)"  required >
+                    </div>
+                </div>
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
                         <label class="c-field__label" for="input4">Pickup Address </label>
                         <input class="c-input" id="pickupaddress"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddress"  required >
                          <input class="c-input" id="pickupaddresslatitude" type="hidden" name="pickupaddresslatitude"  required >
@@ -58,20 +64,47 @@
                          <input class="c-input" id="dropoffaddresslatitude" type="hidden" name="dropoffaddresslatitude"  required >
                          <input class="c-input" id="dropoffaddresslongitude" type="hidden" name="dropoffaddresslongitude"  required >
                     </div>
-                </div><br><br>
+                </div>
+
+
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
-                        <label class="c-field__label" for="input4">Pickup Date</label>
-                        <input class="c-input" id="datepicker" placeholder="Enter pickupdate" name="pickupdate"onkeypress="return  isNumberKey(event)"  required >
+                        <label class="c-field__label" for="input4">Dropoff Contact Name</label>
+                        <input class="c-input" id="dropoffContactName" placeholder="Enter your Dropoff Contact Name"  name="dropoffContactName"   required type="text">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
-                        <label class="c-field__label" for="input4">Pickup Time</label>
-                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickuptime" onkeypress="return  isNumberKey(event)"  required>
+                        <label class="c-field__label" for="input4">Dropoff Contact Number</label>
+                        <input class="c-input" id="dropoffContactNumber" placeholder="Enter your Dropoff Contact Number"  name="dropoffContactNumber" required type="number">
                     </div>
                 </div>
-                 <div class="col-lg-6 u-mb-xsmall">
+
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Pickup Start Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickupStartTime" onkeypress="return  isNumberKey(event)"  required>
+                    </div>
+                </div>
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">Pickup End Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickupEndTime" onkeypress="return  isNumberKey(event)"  required>
+                    </div>
+                </div>
+                                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">DropOff Start Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffStartTime" onkeypress="return  isNumberKey(event)"  required>
+                    </div>
+                </div>
+                                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="c-field">
+                        <label class="c-field__label" for="input4">DropOff End Time</label>
+                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffEndTime" onkeypress="return  isNumberKey(event)"  required>
+                    </div>
+                </div>
+                <div class="col-lg-6 u-mb-xsmall">
                     <div class="c-field">
                         <label class="c-field__label" for="input4">Price</label>
                         <input class="c-input" id="input4" placeholder="Enter price" name="price"   required>
@@ -113,7 +146,7 @@
             $('.timepicker').timepicker({
                 timeFormat: 'HH:mm',
                 interval: 60,
-                defaultTime: '10',
+                defaultTime: '00',
             });
         });
     </script>
@@ -127,7 +160,6 @@
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
         var place = autocomplete.getPlace();
         // console.log(place);
-            // get lat
             var lat = $('#pickupaddresslatitude').val(place.geometry.location.lat());
             var lng = $('#pickupaddresslongitude').val(place.geometry.location.lng());
             console.log(place.geometry.location.lat());

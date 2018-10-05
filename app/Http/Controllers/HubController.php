@@ -28,10 +28,15 @@ class HubController extends Controller
         $product->pickupaddresslongitude = request('pickupaddresslongitude');
         $product->dropoffaddresslatitude = request('dropoffaddresslatitude');
         $product->dropoffaddresslongitude = request('dropoffaddresslongitude');
+        $product->dropoffContactName = request('dropoffContactName');
+        $product->dropoffContactNumber = request('dropoffContactNumber');
+        $product->pickupdate = request('pickupdate');
+        $product->pickupStartTime = request('pickupStartTime');
+        $product->pickupEndTime = request('pickupEndTime');
+        $product->dropOffStartTime = request('dropOffStartTime');
+        $product->dropOffEndTime = request('dropOffEndTime');
         $product->price = request('price');
         $product->hubId = Auth::user()->id;
-        $product->pickupdate = request('pickupdate');
-        $product->pickuptime = request('pickuptime');
         $product->save();
         return back()->with('success', 'Product Added Successfully');
     }
@@ -59,7 +64,15 @@ class HubController extends Controller
         $product->dropoffaddresslongitude = request('dropoffaddresslongitude');
         $product->price = request('price');
         $product->pickupdate = request('pickupdate');
-        $product->pickuptime = request('pickuptime');
+
+                $product->dropoffContactName = request('dropoffContactName');
+        $product->dropoffContactNumber = request('dropoffContactNumber');
+
+        $product->pickupStartTime = request('pickupStartTime');
+        $product->pickupEndTime = request('pickupEndTime');
+        $product->dropOffStartTime = request('dropOffStartTime');
+        $product->dropOffEndTime = request('dropOffEndTime');
+
         $product ->save();
         return back()->with('success', 'Product Updated Successfully');
     }

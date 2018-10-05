@@ -19,4 +19,14 @@ Route::delete('/viewreceiver/{id}/delete', 'commuttercontroller@deletereceiver')
 Route::get('/showMap', 'commuttercontroller@showMap');
 Route::get('/liveOrder', 'commuttercontroller@liveOrder');
 Route::get('/getLiveData', 'commuttercontroller@getLiveData');
+Route::get('pickup/{id}', 'commuttercontroller@pickup_products');
+
+
+
+
+Route::get('ActiveOrder', 'commuttercontroller@ActiveOrder');
+Route::get('OrderMapLocation/{id}/show', 'commuttercontroller@OrderMapLocation')->name('OrderMapLocation');
+
+
+
 

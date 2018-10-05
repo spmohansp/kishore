@@ -25,7 +25,12 @@ class CreateProductsTable extends Migration
             $table->string('dropoffaddresslatitude');
             $table->string('dropoffaddresslongitude');
             $table->string('pickupdate');
-            $table->string('pickuptime');
+            $table->string('dropoffContactName');
+            $table->string('dropoffContactNumber');
+            $table->string('pickupStartTime');
+            $table->string('pickupEndTime');
+            $table->string('dropOffStartTime');
+            $table->string('dropOffEndTime');
             $table->string('price');
             $table->integer('hubId')->unsigned();
             $table->foreign('hubId')->references('id')->on('hubs');

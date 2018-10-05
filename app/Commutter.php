@@ -38,4 +38,8 @@ class Commutter extends Authenticatable
     {
         $this->notify(new CommutterResetPassword($token));
     }
+
+    public function getallorders(){
+        return $this->hasMany(order::class, 'commutterId', 'id');
+    }
 }
