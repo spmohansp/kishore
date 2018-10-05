@@ -192,4 +192,8 @@ class commuttercontroller extends Controller
         return back()->with('success','Product Status Updated Successfully!!');
 
     }
+
+    public function myEarnings(){
+        return view('commutter.activeOrder.myearnings');
+    }
 }

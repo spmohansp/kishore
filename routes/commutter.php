@@ -31,5 +31,9 @@ Route::get('OrderMapLocation/{id}/show', 'commuttercontroller@OrderMapLocation')
 Route::get('updateStatus/{id}/update', 'commuttercontroller@updateStatus')->name('updateStatus');
 Route::post('updateProdtctStatus/{id}/update', 'commuttercontroller@updateProdtctStatus')->name('updateProdtctStatus');
 
+// GET EARNINGS
+Route::get('myEarnings', 'commuttercontroller@myEarnings');
+
+
 
 
