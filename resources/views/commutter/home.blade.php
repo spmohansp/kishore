@@ -17,7 +17,14 @@
 
 @section('script')
   <script type="text/javascript">
-    var locations = [[10,11.664325,78.14601419999997]];
+    var locations = [<?php
+ 	foreach (Auth::user()->getallorders as $key => $value) {
+        if ($key != 0) {
+          echo ",";
+        }
+        echo "['".$value->products->pickupaddress."',".$value->products->pickupaddresslatitude.",".$value->products->pickupaddresslongitude."]";
+  	} 
+		?>];
 		if(navigator.geolocation) {
 		   navigator.geolocation.watchPosition(showLocation);
 		} else {
