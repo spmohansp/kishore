@@ -6,7 +6,7 @@
         @include('hub.layout.header')
         <div class="container">
 
-           @include('master.errors')
+           @include('hub.master.errors')
 
             @yield('content')
 
