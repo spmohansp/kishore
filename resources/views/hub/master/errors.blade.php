@@ -1,15 +1,11 @@
 @if(Session::has('success'))
-    <div class="c-alert c-alert--success alert u-mb-medium">
-                    <span class="c-alert__icon">
-                      <i class="feather icon-info"></i>
-                    </span>
-        <div class="c-alert__content">
-            <h4 class="c-alert__title">
-                {{ Session::get('success') }}
-            </h4>
-        </div>
-        <button class="c-close" data-dismiss="alert" type="button">×</button>
-    </div>
+   <div class="alert alert-success alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <span class="c-alert__icon">
+          <i class="feather icon-info"></i>
+        </span>
+  <strong>{{ Session::get('success') }}.</strong>
+</div>
 @endif
 
 

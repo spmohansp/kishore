@@ -5,12 +5,8 @@
     <main class="o-page__content">
         @include('hub.layout.header')
         <div class="container">
-
            @include('hub.master.errors')
-
-            @yield('content')
-
-
+           @yield('content')
         </div>
     </main>
 </div>

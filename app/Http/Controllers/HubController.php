@@ -122,5 +122,9 @@ class HubController extends Controller
     }
 
 
+    public function profile(){
+        return view('hub.profile.index');
+    }
+
  }
 

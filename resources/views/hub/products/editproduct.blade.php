@@ -1,4 +1,4 @@
-@extends('hub.layout.master')
+@extends('hub.layoutMobile.master')
 
 @section('product')
     is-active
@@ -9,29 +9,28 @@
 @endsection
 
 @section('header')
-    Edit product
+    Edit Product Details
 @endsection
 
 @section('content')
     <form action="{{ route('hub.updateproduct',$product->id) }}" method="POST">
         {{ csrf_field() }}
-        <h3>Edit Parcel Details</h3>
         <div class="c-card">
             <div class="row u-mb-medium">
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input1">Parcel Name</label>
-                        <input class="c-input" id="input1" placeholder="Enter your parcelname" name="parcelname" value = "{{ $product -> parcelname }}"  required type="text" >
+                        <input class="form-control" id="input1" placeholder="Enter your parcelname" name="parcelname" value = "{{ $product -> parcelname }}"  required type="text" >
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input2">Dimensions</label>
-                        <input class="c-input" id="input2" placeholder="Enter your dimensions" name="dimensions" value = "{{ $product -> dimensions }}" onkeypress="return  isNumberKey(event)"  required type="text">
+                        <input class="form-control" id="input2" placeholder="Enter your dimensions" name="dimensions" value = "{{ $product -> dimensions }}" onkeypress="return  isNumberKey(event)"  required type="text">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input3">Parcel Weight</label>
                         <select class="c-select__input" name="parcelweight" value = "{{ $product -> parcelweight }}" onkeypress="return  isNumberKey(event)"  required>
                             <option value="">Select Parcel Weight</option>
@@ -44,77 +43,77 @@
                     </div>
                 </div>
                    <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup Date</label>
-                        <input class="c-input" id="datepicker" placeholder="Enter Pickupdate" name="pickupdate" value = "{{ $product -> pickupdate }}"onkeypress="return  isNumberKey(event)"  required type="text">
+                        <input class="form-control" id="datepicker" placeholder="Enter Pickupdate" name="pickupdate" value = "{{ $product -> pickupdate }}"onkeypress="return  isNumberKey(event)"  required type="text">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup Address </label>
-                         <input class="c-input" id="pickupaddress"  type="text" value="{{ $product -> pickupaddress }}" placeholder="Enter your pickupaddresss"  name="pickupaddress"  required >
-                         <input class="c-input" id="pickupaddresslatitude" type="hidden" value="{{ $product -> pickupaddresslatitude }}" name="pickupaddresslatitude"  required >
-                         <input class="c-input" id="pickupaddresslongitude" type="hidden" value="{{ $product -> pickupaddresslongitude }}" name="pickupaddresslongitude"  required >
+                         <input class="form-control" id="pickupaddress"  type="text" value="{{ $product -> pickupaddress }}" placeholder="Enter your pickupaddresss"  name="pickupaddress"  required >
+                         <input class="form-control" id="pickupaddresslatitude" type="hidden" value="{{ $product -> pickupaddresslatitude }}" name="pickupaddresslatitude"  required >
+                         <input class="form-control" id="pickupaddresslongitude" type="hidden" value="{{ $product -> pickupaddresslongitude }}" name="pickupaddresslongitude"  required >
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Dropoff Address</label>
 
-                        <input class="c-input" id="dropoffaddress" placeholder="Enter your dropoffaddress"  name="dropoffaddress"  value = "{{ $product -> dropoffaddress }}"  required type="text">
-                         <input class="c-input" id="dropoffaddresslatitude" type="hidden"  value="{{ $product -> dropoffaddresslatitude }}"  name="dropoffaddresslatitude"  required >
-                         <input class="c-input" id="dropoffaddresslongitude" type="hidden" value="{{ $product -> dropoffaddresslongitude }}"  name="dropoffaddresslongitude"  required >
+                        <input class="form-control" id="dropoffaddress" placeholder="Enter your dropoffaddress"  name="dropoffaddress"  value = "{{ $product -> dropoffaddress }}"  required type="text">
+                         <input class="form-control" id="dropoffaddresslatitude" type="hidden"  value="{{ $product -> dropoffaddresslatitude }}"  name="dropoffaddresslatitude"  required >
+                         <input class="form-control" id="dropoffaddresslongitude" type="hidden" value="{{ $product -> dropoffaddresslongitude }}"  name="dropoffaddresslongitude"  required >
                     </div>
                 </div>
              
 
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Dropoff Contact Name</label>
-                        <input class="c-input" id="dropoffContactName" placeholder="Enter your Dropoff Contact Name"  name="dropoffContactName" value = "{{ $product -> dropoffContactName }}" required type="text">
+                        <input class="form-control" id="dropoffContactName" placeholder="Enter your Dropoff Contact Name"  name="dropoffContactName" value = "{{ $product -> dropoffContactName }}" required type="text">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Dropoff Contact Number</label>
-                        <input class="c-input" id="dropoffContactNumber" placeholder="Enter your Dropoff Contact Number"  name="dropoffContactNumber" value = "{{ $product -> dropoffContactNumber }}" required type="number">
+                        <input class="form-control" id="dropoffContactNumber" placeholder="Enter your Dropoff Contact Number"  name="dropoffContactNumber" value = "{{ $product -> dropoffContactNumber }}" required type="number">
                     </div>
                 </div>
 
 
 
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup Start Time</label>
-                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickupStartTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> pickupStartTime }}" required>
+                        <input class="form-control timepicker" id="input4" placeholder="Enter pickuptime" name="pickupStartTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> pickupStartTime }}" required>
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup End Time</label>
-                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="pickupEndTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> pickupEndTime }}"  required>
+                        <input class="form-control timepicker" id="input4" placeholder="Enter pickuptime" name="pickupEndTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> pickupEndTime }}"  required>
                     </div>
                 </div>
                                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">DropOff Start Time</label>
-                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffStartTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> dropOffStartTime }}"  required>
+                        <input class="form-control timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffStartTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> dropOffStartTime }}"  required>
                     </div>
                 </div>
                                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">DropOff End Time</label>
-                        <input class="c-input timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffEndTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> dropOffEndTime }}"  required>
+                        <input class="form-control timepicker" id="input4" placeholder="Enter pickuptime" name="dropOffEndTime" onkeypress="return  isNumberKey(event)" value = "{{ $product -> dropOffEndTime }}"  required>
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Price</label>
-                        <input class="c-input" id="input4" placeholder="Enter price" value = "{{ $product -> price }}" name="price"   required>
+                        <input class="form-control" id="input4" placeholder="Enter price" value = "{{ $product -> price }}" name="price"   required>
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Status</label>
                         <h3>{{ $product -> status }}</h3>
                     </div>

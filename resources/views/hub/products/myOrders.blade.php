@@ -1,4 +1,4 @@
-@extends('hub.layout.master')
+@extends('hub.layoutMobile.master')
 
 @section('product')
     is-active
@@ -14,17 +14,17 @@
 
 @section('content')
 <div class="row">
-        <div class="col-12">
-            <div class="c-table-responsive@wide">
-                <table class="c-table">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
                     <thead class="c-table__head">
                     <tr class="c-table__row">
-                        <th class="c-table__cell c-table__cell--head">Parcel Name</th>
-                        <th class="c-table__cell c-table__cell--head">Pickup Address</th>
-                        <th class="c-table__cell c-table__cell--head">Dropoff Address</th>
-                        <th class="c-table__cell c-table__cell--head">Pickup Date</th>
-                        <th class="c-table__cell c-table__cell--head">Price</th>
-                        <th class="c-table__cell c-table__cell--head">Status</th>
+                        <th scope="col">Parcel Name</th>
+                        <th scope="col">Pickup Address</th>
+                        <th scope="col">Dropoff Address</th>
+                        <th scope="col">Pickup Date</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
                     </tr>
                     </thead>
                     <tbody>

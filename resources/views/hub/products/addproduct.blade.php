@@ -1,4 +1,5 @@
-@extends('hub.layout.master')
+@extends('hub.layoutMobile.master')
+
 
 @section('product')
     is-active
@@ -18,21 +19,21 @@
         <div class="c-card">
             <div class="row u-mb-medium">
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input1">Parcel Name</label>
-                        <input class="c-input" id="input1" value="{{ old("parcelname") }}" placeholder="Enter your parcelname" name="parcelname" required type="text" >
+                        <input class="form-control" id="input1" value="{{ old("parcelname") }}" placeholder="Enter your parcelname" name="parcelname" required type="text" >
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="r-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input2">Dimensions</label>
-                        <input class="c-input" id="input2" value="{{ old("dimensions") }}" placeholder="Enter your dimensions" name="dimensions" onkeypress="return  isNumberKey(event)"  required type="text">
+                        <input class="form-control" id="input2" value="{{ old("dimensions") }}" placeholder="Enter your dimensions" name="dimensions" onkeypress="return  isNumberKey(event)"  required type="text">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input3">Parcel Weight</label>
-                        <select class="c-select__input" name="parcelweight" onkeypress="return  isNumberKey(event)"  required >
+                        <select class="form-control" name="parcelweight" onkeypress="return  isNumberKey(event)"  required >
                             <option value="">Select Parcel Weight</option>
                             <option value="under_1_kg" <?php if( old("parcelweight")=='under_1_kg'){ echo "selected";} ?>>under 1 KG</option>
                             <option value="2-5_kg" <?php if( old("parcelweight")=='2-5_kg'){ echo "selected";} ?>>2-5 KG</option>
@@ -43,83 +44,81 @@
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup Date</label>
-                        <input class="c-input" id="datepicker" value="{{ old("pickupdate") }}" placeholder="Enter pickupdate" name="pickupdate" onkeypress="return  isNumberKey(event)"  required >
+                        <input class="form-control" id="datepicker" value="{{ old("pickupdate") }}" placeholder="Enter pickupdate" name="pickupdate" onkeypress="return  isNumberKey(event)"  required >
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup Address </label>
-                        <input class="c-input" id="pickupaddress" value="{{ old("pickupaddress") }}"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddress"  required >
-                         <input class="c-input" id="pickupaddresslatitude" value="{{ old("pickupaddresslatitude") }}" type="hidden" name="pickupaddresslatitude"  required >
-                         <input class="c-input" id="pickupaddresslongitude" value="{{ old("pickupaddresslongitude") }}" type="hidden" name="pickupaddresslongitude"  required >
+                        <input class="form-control" id="pickupaddress" value="{{ old("pickupaddress") }}"  type="text" placeholder="Enter your pickupaddresss"  name="pickupaddress"  required >
+                         <input class="form-control" id="pickupaddresslatitude" value="{{ old("pickupaddresslatitude") }}" type="hidden" name="pickupaddresslatitude"  required >
+                         <input class="form-control" id="pickupaddresslongitude" value="{{ old("pickupaddresslongitude") }}" type="hidden" name="pickupaddresslongitude"  required >
 
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Dropoff Address</label>
-                        <input class="c-input" id="dropoffaddress" value="{{ old("dropoffaddress") }}" placeholder="Enter your dropoffaddress"  name="dropoffaddress"   required type="text">
-                         <input class="c-input" id="dropoffaddresslatitude" value="{{ old("dropoffaddresslatitude") }}" type="hidden" name="dropoffaddresslatitude"  required >
-                         <input class="c-input" id="dropoffaddresslongitude" value="{{ old("dropoffaddresslongitude") }}" type="hidden" name="dropoffaddresslongitude"  required >
+                        <input class="form-control" id="dropoffaddress" value="{{ old("dropoffaddress") }}" placeholder="Enter your dropoffaddress"  name="dropoffaddress"   required type="text">
+                         <input class="form-control" id="dropoffaddresslatitude" value="{{ old("dropoffaddresslatitude") }}" type="hidden" name="dropoffaddresslatitude"  required >
+                         <input class="form-control" id="dropoffaddresslongitude" value="{{ old("dropoffaddresslongitude") }}" type="hidden" name="dropoffaddresslongitude"  required >
                     </div>
                 </div>
 
 
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Dropoff Contact Name</label>
-                        <input class="c-input" id="dropoffContactName" value="{{ old("dropoffContactName") }}" placeholder="Enter your Dropoff Contact Name"  name="dropoffContactName"   required type="text">
+                        <input class="form-control" id="dropoffContactName" value="{{ old("dropoffContactName") }}" placeholder="Enter your Dropoff Contact Name"  name="dropoffContactName"   required type="text">
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Dropoff Contact Number</label>
-                        <input class="c-input" id="dropoffContactNumber" value="{{ old("dropoffContactNumber") }}"  placeholder="Enter your Dropoff Contact Number"  name="dropoffContactNumber" required type="number">
+                        <input class="form-control" id="dropoffContactNumber" value="{{ old("dropoffContactNumber") }}"  placeholder="Enter your Dropoff Contact Number"  name="dropoffContactNumber" required type="number">
                     </div>
                 </div>
 
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup Start Time</label>
-                        <input class="c-input timepicker" value="{{ old("pickupStartTime") }}" id="input4" placeholder="Enter pickuptime" name="pickupStartTime" onkeypress="return  isNumberKey(event)"  required>
+                        <input class="form-control timepicker" value="{{ old("pickupStartTime") }}" id="input4" placeholder="Enter pickuptime" name="pickupStartTime" onkeypress="return  isNumberKey(event)"  required>
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Pickup End Time</label>
-                        <input class="c-input timepicker" value="{{ old("pickupEndTime") }}" id="input4" placeholder="Enter pickuptime" name="pickupEndTime" onkeypress="return  isNumberKey(event)"  required>
-                    </div>
-                </div>
-                                <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
-                        <label class="c-field__label" for="input4">DropOff Start Time</label>
-                        <input class="c-input timepicker" value="{{ old("dropOffStartTime") }}" id="input4" placeholder="Enter pickuptime" name="dropOffStartTime" onkeypress="return  isNumberKey(event)"  required>
-                    </div>
-                </div>
-                                <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
-                        <label class="c-field__label" for="input4">DropOff End Time</label>
-                        <input class="c-input timepicker" value="{{ old("dropOffEndTime") }}" id="input4" placeholder="Enter pickuptime" name="dropOffEndTime" onkeypress="return  isNumberKey(event)"  required>
+                        <input class="form-control timepicker" value="{{ old("pickupEndTime") }}" id="input4" placeholder="Enter pickuptime" name="pickupEndTime" onkeypress="return  isNumberKey(event)"  required>
                     </div>
                 </div>
                 <div class="col-lg-6 u-mb-xsmall">
-                    <div class="c-field">
+                    <div class="form-group">
+                        <label class="c-field__label" for="input4">DropOff Start Time</label>
+                        <input class="form-control timepicker" value="{{ old("dropOffStartTime") }}" id="input4" placeholder="Enter pickuptime" name="dropOffStartTime" onkeypress="return  isNumberKey(event)"  required>
+                    </div>
+                </div>
+                                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="form-group">
+                        <label class="c-field__label" for="input4">DropOff End Time</label>
+                        <input class="form-control timepicker" value="{{ old("dropOffEndTime") }}" id="input4" placeholder="Enter pickuptime" name="dropOffEndTime" onkeypress="return  isNumberKey(event)"  required>
+                    </div>
+                </div>
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="form-group">
                         <label class="c-field__label" for="input4">Price</label>
-                        <input class="c-input" id="input4" value="{{ old("price") }}" placeholder="Enter price" name="price" required>
+                        <input class="form-control" id="input4" value="{{ old("price") }}" placeholder="Enter price" name="price" required>
                     </div>
                 </div>
             </div>
             <div  style="text-align: center">
-                <button class="c-btn c-btn--success u-mb-xsmall" type="submit">Save</button>&emsp;&emsp;&emsp;&emsp;
-                <button class="c-btn c-btn--warning u-mb-xsmall" type="reset">Cancel</button>
+                <button class="btn btn-success btn-small" type="submit">Save</button>&emsp;&emsp;&emsp;&emsp;
+                <button class="btn btn-warning btn-small" type="reset">Cancel</button>
             </div>
         </div>
     </form>
-
 @endsection
-
 
 
 @section('script')

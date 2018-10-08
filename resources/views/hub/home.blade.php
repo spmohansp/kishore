@@ -1,4 +1,4 @@
-@extends('hub.layout.master')
+@extends('hub.layoutMobile.master')
 
 @section('header')
  	Dashboard
@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
- Dashboard
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&sensor=true&libraries=places" type="text/javascript"></script>
  <div id="map" style="width: 100%; height: 400px;"></div>
 @endsection
