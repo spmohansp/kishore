@@ -20,20 +20,21 @@
 					<div class="row">
 						<div class="col-sm-2 col-md-2 col-xs-2" style="float: left;">
 							<div class="logo pull-left">
-								<a href="{{ url('hub/home') }}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_TV_2015.svg/582px-Logo_TV_2015.svg.png" alt="" height="50px" class="img-circle" width="51px"/></a>
+								<a href="{{ url('commutter/home') }}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_TV_2015.svg/582px-Logo_TV_2015.svg.png" alt="" height="50px" class="img-circle" width="51px"/></a>
 							</div>
 						</div>
 						<div class="col-sm-1 col-md-1 col-xs-1">
                         </div>
                         <div class="col-sm-6 col-md-6 col-xs-6">
                         	<div class="text-center">
-                        		<a href="{{ url('hub/home') }}"><img src="https://pngimage.net/wp-content/uploads/2018/06/logo-png-vector-7.png" height="25px" width="123px" style="margin-top: 12px;"/></a>
+                        		<a href="{{ url('commutter/home') }}"><img src="https://pngimage.net/wp-content/uploads/2018/06/logo-png-vector-7.png" height="25px" width="123px" style="margin-top: 12px;"/></a>
                         	</div>
+
                         </div>
                         <div class="col-sm-2 col-md-2 col-xs-2">
                         </div>
 						<div class="col-sm-1 col-md-1 col-xs-1">
-							<a style="float: right;margin-top: 12px;" href="{{ URL::previous() }}"><i class="fa fa-reply" aria-hidden="true"></i></a>
+	<a style="float: right;margin-top: 12px;" href="{{ URL::previous() }}"><i class="fa fa-reply" aria-hidden="true"></i></a>
                         </div>
                         <div id="header-middle">
                         </div>

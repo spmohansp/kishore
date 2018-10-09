@@ -64,7 +64,9 @@ class commuttercontroller extends Controller
         return view('commutter.home',compact('products'));
     }
 
-
+    public function profile(){
+        return view('commutter.profile.index');
+    }
 
 
 
@@ -112,9 +114,9 @@ class commuttercontroller extends Controller
 
         if(!empty($liveData)){
             $finalData ='<div class="row">
-        <div class="col-12">
-            <div class="c-table-responsive@wide">
-                <table class="c-table">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
                     <thead class="c-table__head">
                     <tr class="c-table__row">
                         <th class="c-table__cell c-table__cell--head">Parcel Name</th>
@@ -143,7 +145,7 @@ class commuttercontroller extends Controller
                         <td class="c-table__cell">'.$value->pickupdate.'</td>
                         <td class="c-table__cell">'.$value->pickupStartTime.' - '.$value->pickupEndTime.'</td>
                         <td class="c-table__cell">'.$value->price.'</td>
-                        <td class="c-table__cell"><a href="pickup/'.$value->id.'"><button class="c-btn c-btn--success u-mb-xsmall">Pick Up</button></a></td></tr>';
+                        <td class="c-table__cell"><a href="pickup/'.$value->id.'"><button class="btn btn-success btn-small">Pick Up</button></a></td></tr>';
             }
             return $finalData.'</tbody></table>';
         }else{

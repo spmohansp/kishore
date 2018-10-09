@@ -36,4 +36,8 @@ Route::get('myEarnings', 'commuttercontroller@myEarnings');
 
 
 
+Route::get('/profile', 'commuttercontroller@profile');
+
+
+
 

@@ -1,4 +1,4 @@
-@extends('commutter.layout.auth')
+@extends('commutter.layoutMobile.master')
 
 @section('content')
 <div class="container">

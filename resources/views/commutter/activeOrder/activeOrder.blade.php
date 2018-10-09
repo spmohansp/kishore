@@ -1,4 +1,4 @@
-@extends('commutter.layout.master')
+@extends('commutter.layoutMobile.master')
 
 @section('Orders')
     is-active
@@ -16,9 +16,9 @@
 @section('content')
 
 <div class="row">
-        <div class="col-12">
-            <div class="c-table-responsive@wide">
-                <table class="c-table">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
                     <thead class="c-table__head">
                     <tr class="c-table__row">
                         <th class="c-table__cell c-table__cell--head">Parcel Name</th>
@@ -49,16 +49,8 @@
                             <td class="c-table__cell">{{$orders->products->price}}</td>
                             <td class="c-table__cell">{{$orders->products->status}}</td>
                             <td class="c-table__cell">
-                                <div class="c-dropdown dropdown">
-                                    <a href="#" class="c-btn c-btn--info has-icon dropdown-toggle" id="dropdownMenuTable1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                        More <i class="feather icon-chevron-down"></i>
-                                    </a>
-
-                                    <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuTable1">
-                                        <a class="c-dropdown__item dropdown-item" href="{{route('commutter.updateStatus',$orders->products->id)}}">Update Status</a>
-                                        <a class="c-dropdown__item dropdown-item" href="{{route('commutter.OrderMapLocation',$orders->products->id)}}">Map Location</a>
-                                    </div>
-                                </div>
+                                <a class="c-dropdown__item dropdown-item" href="{{route('commutter.updateStatus',$orders->products->id)}}"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
+                                <a class="c-dropdown__item dropdown-item" href="{{route('commutter.OrderMapLocation',$orders->products->id)}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
                             </td>
                         </tr>
                         @endif

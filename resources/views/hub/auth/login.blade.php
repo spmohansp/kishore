@@ -1,4 +1,4 @@
-@extends('hub.layout.auth')
+@extends('hub.layoutMobile.master')
 
 @section('content')
 <div class="container">

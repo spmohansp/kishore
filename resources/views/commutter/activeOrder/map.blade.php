@@ -1,4 +1,4 @@
-@extends('commutter.layout.master')
+@extends('commutter.layoutMobile.master')
 
 @section('Orders')
     is-active

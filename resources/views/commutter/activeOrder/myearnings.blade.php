@@ -1,4 +1,4 @@
-@extends('commutter.layout.master')
+@extends('commutter.layoutMobile.master')
 
 @section('Orders')
     is-active
@@ -17,9 +17,9 @@
 
 
 <div class="row">
-    <div class="col-12">
-        <div class="c-table-responsive@wide">
-            <table class="c-table">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="table table-hover">
                 <thead class="c-table__head">
 	                <tr class="c-table__row">
 	                    <th class="c-table__cell c-table__cell--head">Date</th>
