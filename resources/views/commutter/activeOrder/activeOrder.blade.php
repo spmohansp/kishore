@@ -39,7 +39,7 @@
                     @if($orders->status==0)
                         <tr class="c-table__row">
                             <td class="c-table__cell">{{$orders->products->parcelname}}</td>
-                            <td class="c-table__cell">{{$orders->products->pickupaddress}}</td>
+                            <td class="c-table__cell"><a href="https://maps.google.com/?saddr=My%20Location&daddr={{$orders->products->pickupaddress}}">{{$orders->products->pickupaddress}}</a></td>
                             <td class="c-table__cell">{{$orders->products->dropoffaddress}}</td>
                             <td class="c-table__cell">{{$orders->products->dropoffContactName}}</td>
                             <td class="c-table__cell">{{$orders->products->dropoffContactNumber}}</td>
