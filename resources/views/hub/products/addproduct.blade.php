@@ -11,9 +11,11 @@
 
 @section('header')
     Add Order
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 @endsection
 
 @section('content')
+
     <form action="{{ route('hub.addproduct') }}" method="POST">
         {{ csrf_field() }}
         <div class="c-card">
@@ -152,7 +154,7 @@
         });
     </script>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&libraries=places&language=en-AU"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&libraries=places&language=en-AU"></script>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIun_91OJDETSmXfb2EYqMcRg966ls6dw&callback=initMap"
    async defer></script> -->
 <script>
