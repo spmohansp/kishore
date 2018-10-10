@@ -165,7 +165,7 @@
         // console.log(place);
             var lat = $('#pickupaddresslatitude').val(place.geometry.location.lat());
             var lng = $('#pickupaddresslongitude').val(place.geometry.location.lng());
-            console.log(place.geometry.location.lat());
+            // console.log(place.geometry.location.lat());
     });
     google.maps.event.addListener(autocomplete1, 'place_changed', function() {
         var place1 = autocomplete1.getPlace();

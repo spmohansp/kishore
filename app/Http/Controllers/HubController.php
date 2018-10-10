@@ -38,7 +38,7 @@ class HubController extends Controller
         $product->parcelname = request('parcelname');
         $product->dimensions = request('dimensions');
         $product->parcelweight = request('parcelweight');
-        $product->pickupaddress = request('parcelweight');
+        $product->pickupaddress = request('pickupaddress');
         $product->dropoffaddress = request('dropoffaddress');
         $product->pickupaddresslatitude = request('pickupaddresslatitude');
         $product->pickupaddresslongitude = request('pickupaddresslongitude');
