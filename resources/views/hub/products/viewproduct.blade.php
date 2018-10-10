@@ -49,7 +49,7 @@
                                     {{ csrf_field() }}
                                     <input type="hidden" name="_method" value="DELETE">
                                     <a href="{{ route('hub.editproduct', $product->id) }}"><i class="fa fa-pencil"></i></a>
-                                    <a onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></a>
+                                    <button onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
