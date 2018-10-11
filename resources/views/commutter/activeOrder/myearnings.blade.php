@@ -29,7 +29,7 @@
 	                </tr>
                 </thead>
                 <tbody>
-                @foreach(Auth::user()->getallorders as $orders)
+                @foreach(Auth::user()->getMyEarnings as $orders)
                   @if($orders->status==1)
                     <tr class="c-table__row">
                         <td class="c-table__cell">{{$orders->products->pickupdate}}</td>

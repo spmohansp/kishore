@@ -42,4 +42,8 @@ class Commutter extends Authenticatable
     public function getallorders(){
         return $this->hasMany(order::class, 'commutterId', 'id');
     }
+
+    public function getMyEarnings(){
+        return $this->hasMany(order::class, 'commutterId', 'id')->orderBy('updated_at', 'desc');
+    }
 }

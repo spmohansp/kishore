@@ -14,18 +14,20 @@
 
     <input type="hidden" name="" id="latidude">
    <input type="hidden" name="" id="longitude">
-
 @endsection
 
 
 @section('script')
   <script type="text/javascript">
     var locations = [<?php
- 	foreach (Auth::user()->getallorders as $key => $value) {
-        if ($key != 0) {
-          echo ",";
-        }
-        echo "['".$value->products->pickupaddress."',".$value->products->pickupaddresslatitude.",".$value->products->pickupaddresslongitude."]";
+    	$i=0;
+ 	foreach (App\product::get() as $key => $value) {
+        if ($value->status=='open') {
+	        if ($i != 0) {
+	          echo ",";
+	        }$i++;
+        	echo "['".$value->pickupaddress."',".$value->pickupaddresslatitude.",".$value->pickupaddresslongitude."]";
+   		}
   	} 
 		?>];
 		if(navigator.geolocation) {

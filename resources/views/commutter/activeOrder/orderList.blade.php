@@ -52,7 +52,7 @@
 					url:'/commutter/getLiveData',
 					data:{latidude:latidude,longitude:longitude},
 					success:function(data){
-						console.log(data);
+						// console.log(data);
 						$('#tableData').html(data);
 					}
 				});
