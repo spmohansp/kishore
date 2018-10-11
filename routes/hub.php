@@ -10,7 +10,6 @@ Route::get('/home', function () {
     return view('hub.home');
 })->name('home');
 
-
 Route::get('/addproduct', 'HubController@showaddproduct');
 Route::post('/addproduct', 'HubController@addproduct')->name('addproduct');
 Route::get('/viewproduct', 'HubController@viewproduct');
@@ -21,4 +20,4 @@ Route::delete('/product/{id}/delete', 'HubController@deleteproduct')->name('dele
 
 Route::get('/myorders', 'HubController@myorders');
 Route::get('/profile', 'HubController@profile');
-
+Route::get('/homeMap', 'HubController@homeMap');

@@ -11,6 +11,10 @@
 @section('content')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&sensor=true&libraries=places" type="text/javascript"></script>
  <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <input type="hidden" name="" id="latidude">
+   <input type="hidden" name="" id="longitude">
+
 @endsection
 
 
@@ -33,6 +37,9 @@
          function showLocation(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
+
+            document.getElementById('latidude').value = latitude;
+      		document.getElementById('longitude').value = longitude;
 
             var map = new google.maps.Map(document.getElementById('map'), {
 		      zoom: 14,
@@ -58,6 +65,27 @@
 		      })(marker, i));
 		    }
         }
+
+
+
+		  $(document).ready(function () {
+		    setTimeout(function(){
+		   		// $('#getData').on('click',function (e) {
+					// e.preventDefault();
+		     			var latidude = $('#latidude').val();
+		     			var longitude = $('#longitude').val();
+					    $.ajax({
+							type : "get",
+							url:'/commutter/updateCommutterLocation',
+							data:{latidude:latidude,longitude:longitude},
+							success:function(data){
+								// console.log(data);
+							}
+						});
+					// });
+		   },2000); 
+		  })
+
 			
     </script>
     @endsection

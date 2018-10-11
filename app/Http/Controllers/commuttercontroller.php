@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\receiver;
+use App\Commutter;
 use App\product;
 use App\order;
 use Illuminate\Support\Facades\Auth; 
@@ -69,7 +70,13 @@ class commuttercontroller extends Controller
     }
 
 
-
+    public function updateCommutterLocation(){
+        $commutter= Commutter::where([['id',Auth::user()->id]])->first();
+        $commutter->latidude=request()->latidude;
+        $commutter->longitude=request()->longitude;
+        $commutter->save();
+        return 'Success';
+    }
 
 
 
