@@ -198,7 +198,8 @@ class commuttercontroller extends Controller
             $orders->status=1;
             $orders->save();
         }
-        return back()->with('success','Product Status Updated Successfully!!');
+        
+        return redirect('commutter/ActiveOrder')->with('success','Product Status Updated Successfully!!');
 
     }
 

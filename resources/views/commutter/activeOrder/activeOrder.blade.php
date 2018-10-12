@@ -40,9 +40,17 @@
                         <tr class="c-table__row">
                             <td class="c-table__cell">{{$orders->products->parcelname}}</td>
                             <td class="c-table__cell"><a href="https://maps.google.com/?saddr=My%20Location&daddr={{$orders->products->pickupaddress}}">{{$orders->products->pickupaddress}}</a></td>
-                            <td class="c-table__cell">{{$orders->products->dropoffaddress}}</td>
-                            <td class="c-table__cell">{{$orders->products->dropoffContactName}}</td>
-                            <td class="c-table__cell">{{$orders->products->dropoffContactNumber}}</td>
+
+                            @if($orders->products->status=='Allocated')
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            @elseif($orders->products->status=='In_Transmit')
+                                <td class="c-table__cell">{{$orders->products->dropoffaddress}}</td>
+                                <td class="c-table__cell">{{$orders->products->dropoffContactName}}</td>
+                                <td class="c-table__cell">{{$orders->products->dropoffContactNumber}}</td>
+                            @endif
+
                             <td class="c-table__cell">{{$orders->products->pickupdate}}</td>
                             <td class="c-table__cell">{{$orders->products->pickupStartTime}} - {{$orders->products->pickupEndTime}}</td>
                             <td class="c-table__cell">{{$orders->products->dropOffStartTime}} - {{$orders->products->dropOffEndTime}}</td>
@@ -50,8 +58,11 @@
                             <td class="c-table__cell">{{$orders->products->status}}</td>
                             <td class="c-table__cell">
                                 <a class="c-dropdown__item dropdown-item" href="{{route('commutter.updateStatus',$orders->products->id)}}"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
-                                <a class="c-dropdown__item dropdown-item" href="{{route('commutter.OrderMapLocation',$orders->products->id)}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
-                                <a href="https://maps.google.com/?saddr={{$orders->products->pickupaddress}}&daddr={{$orders->products->dropoffaddress}}">map</a>
+                            @if($orders->products->status=='Allocated')
+                                <a class="c-dropdown__item dropdown-item" href="https://maps.google.com/?saddr=My%20Location&daddr={{$orders->products->pickupaddress}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            @elseif($orders->products->status=='In_Transmit')
+                                <a class="c-dropdown__item dropdown-item" href="https://maps.google.com/?saddr={{$orders->products->pickupaddress}}&daddr={{$orders->products->dropoffaddress}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            @endif
                             </td>
                         </tr>
                         @endif

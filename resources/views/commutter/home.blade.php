@@ -70,7 +70,7 @@
 
 
 
-		  $(document).ready(function () {
+		$(document).ready(function () {
 		    setTimeout(function(){
 		   		// $('#getData').on('click',function (e) {
 					// e.preventDefault();
@@ -86,7 +86,7 @@
 						});
 					// });
 		   },2000); 
-		  })
+		})
 
 			
     </script>
