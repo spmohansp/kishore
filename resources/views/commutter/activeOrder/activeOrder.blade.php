@@ -51,6 +51,7 @@
                             <td class="c-table__cell">
                                 <a class="c-dropdown__item dropdown-item" href="{{route('commutter.updateStatus',$orders->products->id)}}"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
                                 <a class="c-dropdown__item dropdown-item" href="{{route('commutter.OrderMapLocation',$orders->products->id)}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                                <a href="https://maps.google.com/?saddr={{$orders->products->pickupaddress}}&daddr={{$orders->products->dropoffaddress}}">map</a>
                             </td>
                         </tr>
                         @endif
