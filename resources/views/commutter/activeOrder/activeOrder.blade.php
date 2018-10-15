@@ -14,8 +14,56 @@
 
 
 @section('content')
+   @foreach(Auth::user()->getallorders as $orders)
+    @if($orders->status==0)
+        @if($orders->products->status=='Allocated')
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="thumbnail shadow-depth-4">
+                        <div class="caption">
+                            <center>
+                                <p>Pick Up Date:  <b>{{$orders->products->pickupdate}}</b></p>
+                                <p>Price: <b>{{$orders->products->price}} /-</b></p>
+                                 <a class="c-dropdown__item dropdown-item" href="{{route('commutter.updateStatus',$orders->products->id)}}"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
+                                  <a class="c-dropdown__item dropdown-item" href="https://maps.google.com/?saddr=My%20Location&daddr={{$orders->products->pickupaddress}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </center>
+                             <div class="col-sm-02 col-md-02">
+                                <p>Parcel Name: <b> {{$orders->products->parcelname}}</b></p>
+                                <p>Pickup Address: <b>{{$orders->products->pickupaddress}}</b></p>
+                             </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @elseif($orders->products->status=='In_Transmit')
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="thumbnail shadow-depth-4">
+                        <div class="caption">
+                            <center>
+                                <p>Pick Up Date: <b> {{$orders->products->pickupdate}}</b></p>
+                                <p>Price:<b> {{$orders->products->price}} /-</b></p>
+                                  <a class="c-dropdown__item dropdown-item" href="{{route('commutter.updateStatus',$orders->products->id)}}"><i class="fa fa-location-arrow" aria-hidden="true"></i></a>
+                                   <a class="c-dropdown__item dropdown-item" href="https://maps.google.com/?saddr={{$orders->products->pickupaddress}}&daddr={{$orders->products->dropoffaddress}}"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+                            </center>
+                             <div class="col-sm-02 col-md-02">
+                                <p>Parcel Name: <b> {{$orders->products->parcelname}}</b></p>
+                                <p>Drop Off Address: <b> {{$orders->products->dropoffaddress}}</b> </p>
+                                <p>DropoffContact Person: <b>{{$orders->products->dropoffContactName}}</b> </p>
+                                <p>Dropoff Contact Number: <b>{{$orders->products->dropoffContactNumber}}</b></p>
+                             </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endif
+ @endforeach
 
-<div class="row">
+
+<!-- <div class="row">
         <div class="col-sm-12">
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -39,7 +87,7 @@
                     @if($orders->status==0)
                         <tr class="c-table__row">
                             <td class="c-table__cell">{{$orders->products->parcelname}}</td>
-                            <td class="c-table__cell"><a href="https://maps.google.com/?saddr=My%20Location&daddr={{$orders->products->pickupaddress}}">{{$orders->products->pickupaddress}}</a></td>
+                            <td class="c-table__cell">{{$orders->products->pickupaddress}}</td>
 
                             @if($orders->products->status=='Allocated')
                                 <td></td>
@@ -71,6 +119,6 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> -->
 
 @endsection
