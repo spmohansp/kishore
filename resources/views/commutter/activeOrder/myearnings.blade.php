@@ -24,7 +24,7 @@
 	                <tr class="c-table__row">
 	                    <th class="c-table__cell c-table__cell--head">Date</th>
 	                    <th class="c-table__cell c-table__cell--head">Pickup Address</th>
-	                    <th class="c-table__cell c-table__cell--head">Drop Off Address</th>
+	                    <!-- <th class="c-table__cell c-table__cell--head">Drop Off Address</th> -->
 	                    <th class="c-table__cell c-table__cell--head">Price</th>
 	                </tr>
                 </thead>
@@ -34,7 +34,7 @@
                     <tr class="c-table__row">
                         <td class="c-table__cell">{{$orders->products->pickupdate}}</td>
                         <td class="c-table__cell">{{$orders->products->pickupaddress}}</td>
-                        <td class="c-table__cell">{{$orders->products->dropoffaddress}}</td>
+                        <!-- <td class="c-table__cell">{{$orders->products->dropoffaddress}}</td> -->
                         <td class="c-table__cell">{{$orders->products->price}}</td>
                     </tr>
                   @endif
@@ -44,6 +44,5 @@
         </div>
     </div>
 </div>
-
 
 @endsection

@@ -13,9 +13,6 @@ Route::delete('/viewreceiver/{id}/delete', 'commuttercontroller@deletereceiver')
 
 
 
-
-
-
 Route::get('/showMap', 'commuttercontroller@showMap');
 Route::get('/liveOrder', 'commuttercontroller@liveOrder');
 Route::get('/getLiveData', 'commuttercontroller@getLiveData');

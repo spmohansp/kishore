@@ -25,11 +25,12 @@
                         <th scope="col">Pickup Date</th>
                         <th scope="col">Price</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Rating</th>
                     </tr>
                     </thead>
                     <tbody>
                    @foreach(Auth::user()->products as $product)
-                   @if($product->status=='completed')
+                      @if($product->status=='completed')
                         <tr class="c-table__row">
                             <td class="c-table__cell">{{$product->parcelname}}</td>
                             <td class="c-table__cell">{{$product->pickupaddress}}</td>
@@ -37,6 +38,13 @@
                             <td class="c-table__cell">{{$product->pickupdate}}</td>
                             <td class="c-table__cell">{{$product->price}}</td>
                             <td class="c-table__cell">{{$product->status}}</td>
+                            <td class="c-table__cell">
+                            @if($product->rating)
+                                {{$product->rating->ratings}} <span class="fa fa-star checked"></span>
+                            @else
+                                <a href="/hub/rating/{{$product->id}}/rateProduct" class="btn btn-warning btn-small" >Rating</a>
+                            @endif
+                            </td>
                         </tr>
                         @endif()
                  @endforeach
@@ -45,4 +53,16 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+<style type="text/css">
+.checked {
+    color: orange;
+}
+</style>
 @endsection

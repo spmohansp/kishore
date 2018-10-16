@@ -43,4 +43,6 @@ class Hub extends Authenticatable
         return $this->hasMany(product::class, 'hubId', 'id');
     }
 
+
+
 }
