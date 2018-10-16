@@ -24,8 +24,10 @@
 	                <tr class="c-table__row">
 	                    <th class="c-table__cell c-table__cell--head">Date</th>
 	                    <th class="c-table__cell c-table__cell--head">Pickup Address</th>
-	                    <!-- <th class="c-table__cell c-table__cell--head">Drop Off Address</th> -->
 	                    <th class="c-table__cell c-table__cell--head">Price</th>
+                        <th class="c-table__cell c-table__cell--head">Rating</th>
+
+                        <!-- <th class="c-table__cell c-table__cell--head">Drop Off Address</th> -->
 	                </tr>
                 </thead>
                 <tbody>
@@ -34,8 +36,13 @@
                     <tr class="c-table__row">
                         <td class="c-table__cell">{{$orders->products->pickupdate}}</td>
                         <td class="c-table__cell">{{$orders->products->pickupaddress}}</td>
-                        <!-- <td class="c-table__cell">{{$orders->products->dropoffaddress}}</td> -->
                         <td class="c-table__cell">{{$orders->products->price}}</td>
+                        @if($orders->rating)
+                        <td class="c-table__cell">{{$orders->rating->ratings}} <span class="fa fa-star checked"></span></td>
+                        @else
+                             <td class="c-table__cell">Not Yet Rated</td>
+                        @endif
+                        <!-- <td class="c-table__cell">{{$orders->products->dropoffaddress}}</td> -->
                     </tr>
                   @endif
                 @endforeach
@@ -45,4 +52,9 @@
     </div>
 </div>
 
+<style type="text/css">
+    .checked {
+        color: orange;
+    }
+</style>
 @endsection

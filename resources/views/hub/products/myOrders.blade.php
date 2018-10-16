@@ -42,7 +42,7 @@
                             @if($product->rating)
                                 {{$product->rating->ratings}} <span class="fa fa-star checked"></span>
                             @else
-                                <a href="/hub/rating/{{$product->id}}/rateProduct" class="btn btn-warning btn-small" >Rating</a>
+                                <a href="/hub/rating/{{$product->id}}/rateProduct" class="btn btn-warning btn-small" >Rate</a>
                             @endif
                             </td>
                         </tr>
@@ -54,15 +54,9 @@
         </div>
     </div>
 
-
-
-
-
-
-
 <style type="text/css">
-.checked {
-    color: orange;
-}
+    .checked {
+        color: orange;
+    }
 </style>
 @endsection
