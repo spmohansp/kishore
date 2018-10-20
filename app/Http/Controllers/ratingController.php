@@ -16,7 +16,7 @@ class ratingController extends Controller
 
     public function addRatings($id){
     	$this->validate(request(),[
-            'ratings'=>'required|unique:ratings',
+            'ratings'=>'required',
         ]);
     	$Rating = new Rating;
         $Rating->ratings = request('ratings');

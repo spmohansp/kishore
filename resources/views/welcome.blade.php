@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Delevery On Our Way</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -70,7 +70,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Last Mile App
+                    Delevery On Our Way
                 </div>
                 <div  style="text-align: center">
                     <a href="{{ url('/hub') }}"><button class="btn btn-success btn-sm">Hub</button></a>&emsp;&emsp;&emsp;&emsp;

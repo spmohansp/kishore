@@ -40,6 +40,7 @@ class HubController extends Controller
         return view('hub.products.addproduct');
     }
     public function addproduct(){
+
         $this->validate(request(),[
             'parcelname'=>'required',
             'dimensions'=>'required',
@@ -50,9 +51,9 @@ class HubController extends Controller
             'dropoffContactNumber'=>'required',
             'pickupdate'=>'required',
             'pickupStartTime'=>'required',
-            'pickupEndTime'=>'required',
-            'dropOffStartTime'=>'required',
-            'dropOffEndTime'=>'required',
+            'pickupEndTime'=>'required|after:pickupStartTime',
+            'dropOffStartTime'=>'required|after:pickupEndTime',
+            'dropOffEndTime'=>'required|after:dropOffStartTime',
             'price'=>'required',
         ]);
 
@@ -100,9 +101,9 @@ class HubController extends Controller
             'dropoffContactNumber'=>'required',
             'pickupdate'=>'required',
             'pickupStartTime'=>'required',
-            'pickupEndTime'=>'required',
-            'dropOffStartTime'=>'required',
-            'dropOffEndTime'=>'required',
+            'pickupEndTime'=>'required|after:pickupStartTime',
+            'dropOffStartTime'=>'required|after:pickupEndTime',
+            'dropOffEndTime'=>'required|after:dropOffStartTime',
             'price'=>'required',
         ]);
         $product = product::findOrfail($id);

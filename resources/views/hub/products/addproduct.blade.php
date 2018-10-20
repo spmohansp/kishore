@@ -139,7 +139,7 @@
             $( "#datepicker").datepicker({
                 minDate: 0
             });
-        } );
+        });
     </script>
 
     <script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
@@ -149,7 +149,7 @@
             $('.timepicker').timepicker({
                 timeFormat: 'HH:mm',
                 interval: 60,
-                defaultTime: '00',
+                // defaultTime: '00',
             });
         });
     </script>
