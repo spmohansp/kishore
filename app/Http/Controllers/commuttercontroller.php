@@ -78,6 +78,14 @@ class commuttercontroller extends Controller
         return 'Success';
     }
 
+    public function updateCommutterStatus(){
+        $commutter= Commutter::where([['id',Auth::user()->id]])->first();
+        $commutter->status=request()->status;
+        $commutter->save();
+        return back();
+
+    }
+
 
 
 

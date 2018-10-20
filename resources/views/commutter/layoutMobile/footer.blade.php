@@ -5,7 +5,7 @@
             <div class="">
                <div class="text-center" style="width: 20%;float: left">
                   <a href="{{ url('commutter/home') }}">
-                     <h5 class="i-phone">Dashboard</h5>
+                     <h5 class="i-phone">Home</h5>
                      <i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
                   </a>
                </div>

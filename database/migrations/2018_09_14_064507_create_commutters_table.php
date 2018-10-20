@@ -21,6 +21,7 @@ class CreateCommuttersTable extends Migration
             $table->string('mobile')->nullable();
             $table->string('latidude')->nullable();
             $table->string('longitude')->nullable();
+            $table->string('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

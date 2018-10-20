@@ -9,6 +9,27 @@
 @endsection
 
 @section('content')
+
+
+@if(Auth()->user()->status==0)
+	<?php $status = 1;
+	$button = 'To Active';
+	$btn = 'success';
+	 ?>
+@else
+	<?php $status = 0;
+	$button = 'To In Active';
+	$btn = 'danger';
+	 ?>
+@endif
+
+
+<form action="{{route('commutter.updateCommutterStatus')}}" method="post">
+	{{ csrf_field() }}
+	<input type="hidden" name="status" value="{{$status}}">
+	<button class="btn btn-{{$btn}} btn-small pull-right">{{$button}}</button>
+</form>
+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3_nchoqV696350i6DaDNW2WgQ42F2dRw&sensor=true&libraries=places" type="text/javascript"></script>
  <div id="map" style="width: 100%; height: 400px;"></div>
 

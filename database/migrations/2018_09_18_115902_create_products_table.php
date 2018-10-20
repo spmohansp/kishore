@@ -32,6 +32,7 @@ class CreateProductsTable extends Migration
             $table->string('dropOffStartTime');
             $table->string('dropOffEndTime');
             $table->string('price');
+            $table->string('product');
             $table->integer('hubId')->unsigned();
             $table->foreign('hubId')->references('id')->on('hubs');
             $table->string('status')->default('open');

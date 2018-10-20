@@ -24,4 +24,8 @@ class ratingController extends Controller
         $Rating->save();
         return redirect('/hub/myorders')->with('success','Rated Successfully!!');
     }
+
+    public function rate(){
+        return view('hub.rating.index');
+    }
 }

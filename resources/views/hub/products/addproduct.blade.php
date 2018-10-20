@@ -16,7 +16,7 @@
 
 @section('content')
 
-    <form action="{{ route('hub.addproduct') }}" method="POST">
+    <form action="{{ route('hub.addproduct') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="c-card">
             <div class="row u-mb-medium">
@@ -111,6 +111,12 @@
                     <div class="form-group">
                         <label class="c-field__label" for="input4">Price</label>
                         <input class="form-control" id="input4" value="{{ old("price") }}" placeholder="Enter price" name="price" required>
+                    </div>
+                </div>
+                <div class="col-lg-6 u-mb-xsmall">
+                    <div class="form-group">
+                        <label class="c-field__label" for="input4">Images</label>
+                        <input class="form-control" type="file" id="input4" name="product" required>
                     </div>
                 </div>
             </div>

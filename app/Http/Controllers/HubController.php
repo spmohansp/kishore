@@ -8,6 +8,7 @@ use App\Commutter;
 use DB;
 
 
+
 use Illuminate\Support\Facades\Auth; 
 
 
@@ -40,7 +41,6 @@ class HubController extends Controller
         return view('hub.products.addproduct');
     }
     public function addproduct(){
-
         $this->validate(request(),[
             'parcelname'=>'required',
             'dimensions'=>'required',
@@ -55,8 +55,11 @@ class HubController extends Controller
             'dropOffStartTime'=>'required|after:pickupEndTime',
             'dropOffEndTime'=>'required|after:dropOffStartTime',
             'price'=>'required',
+            'product'=>'required',
+            
         ]);
-
+        $files = request()->parcelname.now()->timestamp.'.'.request()->file('product')->getClientOriginalExtension(); 
+        request()->file('product')->move(base_path().'/public/products', $files);
     	$product = new product;
         $product->parcelname = request('parcelname');
         $product->dimensions = request('dimensions');
@@ -75,6 +78,7 @@ class HubController extends Controller
         $product->dropOffStartTime = request('dropOffStartTime');
         $product->dropOffEndTime = request('dropOffEndTime');
         $product->price = request('price');
+        $product->product = $files;
         $product->hubId = Auth::user()->id;
         $product->save();
         return back()->with('success', 'Product Added Successfully');

@@ -21,7 +21,7 @@ Route::delete('/product/{id}/delete', 'HubController@deleteproduct')->name('dele
 Route::get('/myorders', 'HubController@myorders');
 Route::get('/profile', 'HubController@profile');
 Route::get('/homeMap', 'HubController@homeMap');
-
+Route::get('/rate', 'ratingController@rate'); // UPDATING
 
 
 
