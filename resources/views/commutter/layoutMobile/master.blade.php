@@ -6,7 +6,14 @@
 				<div class="col-sm-12 col-md-12 col-sm-offset-1">
 					<h4>@yield('header')</h4>
 				 	@include('commutter.master.errors')
-				 	@yield('content')
+<!-- ACTIVE STATUS SHOW CONTENT -->
+				 	@if(Auth::user()->status==1)
+				 		@yield('content')
+				 	@else
+				 		@yield('activeButton')
+				 		<center><h3>To Be Visible Only On Active Status</h3></center>
+				 	@endif
+
 				</div>
 			</div>
 		</div>

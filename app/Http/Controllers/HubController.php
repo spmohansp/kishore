@@ -51,6 +51,7 @@ class HubController extends Controller
             'pickupEndTime'=>'required|after:pickupStartTime',
             'dropOffStartTime'=>'required|after:pickupEndTime',
             'dropOffEndTime'=>'required|after:dropOffStartTime',
+            'product'=>'required',
             'price'=>'required',
             'product'=>'required',
             
