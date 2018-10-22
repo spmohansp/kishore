@@ -24,17 +24,14 @@ class HubController extends Controller
         $latitude=request()->latidude;
         $longitude=request()->longitude;
         return $liveData= Commutter::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( latidude ) ) * cos( radians( longitude ) - radians('.$longitude.') ) + sin( radians('.$latitude.') ) * sin( radians( latidude ) ) ) ) AS distance'))->having('distance', '<', 100)->get();
-
-        $finalData='[';
-        foreach ($liveData as $key => $value) {
-            if ($key != 0) {
-              $finalData= $finalData.",";
-            }
-            $finalData= $finalData."['".$value->name."',".$value->latidude.",".$value->longitude."]";
-        }
-        return $finalData.']';
-
-
+        // $finalData='[';
+        // foreach ($liveData as $key => $value) {
+        //     if ($key != 0) {
+        //       $finalData= $finalData.",";
+        //     }
+        //     $finalData= $finalData."['".$value->name."',".$value->latidude.",".$value->longitude."]";
+        // }
+        // return $finalData.']';
     }
 
     public function showaddproduct(){
