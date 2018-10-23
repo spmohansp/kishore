@@ -152,8 +152,8 @@ class commuttercontroller extends Controller
                 $finalData=$finalData.'<tr>
                         <td class="c-table__cell">'.$value->parcelname.'</td>
                         <td class="c-table__cell">'.$value->parcelweight.'</td>
-                        <td class="c-table__cell">'.Auth::user()->name.'</td>
-                        <td class="c-table__cell">'.Auth::user()->mobile.'</td>
+                        <td class="c-table__cell">'.$value->gethubDetails->name.'</td>
+                        <td class="c-table__cell">'.$value->gethubDetails->mobile.'</td>
                         <td class="c-table__cell">'.$value->pickupaddress.'</td>
                         <td class="c-table__cell">'.$value->dropoffaddress.'</td>
                         <td class="c-table__cell">'.round($value->distance).' KM</td>

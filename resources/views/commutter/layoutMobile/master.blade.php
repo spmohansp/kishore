@@ -7,12 +7,16 @@
 					<h4>@yield('header')</h4>
 				 	@include('commutter.master.errors')
 <!-- ACTIVE STATUS SHOW CONTENT -->
+		@if(Auth::user())
 				 	@if(Auth::user()->status==1)
 				 		@yield('content')
 				 	@else
 				 		@yield('activeButton')
 				 		<center><h3>To Be Visible Only On Active Status</h3></center>
 				 	@endif
+	 	@else
+	 		@yield('content')
+	 	@endif
 
 				</div>
 			</div>
