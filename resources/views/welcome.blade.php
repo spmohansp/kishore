@@ -66,8 +66,6 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-
-
             <div class="content">
                 <div class="title m-b-md">
                     Delevery On Our Way
@@ -76,8 +74,6 @@
                     <a href="{{ url('/hub') }}"><button class="btn btn-success btn-sm">Hub</button></a>&emsp;&emsp;&emsp;&emsp;
                     <a href="{{ url('/commutter') }}" ><button class="btn btn-primary btn-sm">Commuter</button></a>
                 </div>
-
-              
             </div>
         </div>
     </body>
