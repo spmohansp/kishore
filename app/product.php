@@ -11,6 +11,6 @@ class product extends Model
     }
 
     public function gethubDetails(){
-        return $this->belongsTo(hub::class, 'hubId', 'id');
+        return $this->belongsTo(Hub::class, 'hubId', 'id');
     }
 }
