@@ -38,7 +38,7 @@
                         <td class="c-table__cell">{{$orders->products->pickupaddress}}</td>
                         <td class="c-table__cell">{{$orders->products->price}}</td>
                         @if($orders->rating)
-                        <td class="c-table__cell">{{$orders->rating->ratings}} <span class="fa fa-star checked"></span></td>
+                            <td class="c-table__cell">{{$orders->rating->ratings}} <span class="fa fa-star checked"></span></td>
                         @else
                              <td class="c-table__cell">Not Yet Rated</td>
                         @endif

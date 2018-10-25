@@ -12,6 +12,6 @@ class order extends Model
     }
 
     public function rating(){
-       return $this->hasOne(Rating::class, 'productId','id');
+       return $this->belongsTo(Rating::class, 'productId','productId');
     }
 }
