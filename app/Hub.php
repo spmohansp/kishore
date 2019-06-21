@@ -16,7 +16,7 @@ class Hub extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','address','mobile'
     ];
 
     /**
@@ -38,4 +38,11 @@ class Hub extends Authenticatable
     {
         $this->notify(new HubResetPassword($token));
     }
+
+    public function products(){
+        return $this->hasMany(product::class, 'hubId', 'id');
+    }
+
+
+
 }

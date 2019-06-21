@@ -16,12 +16,26 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('parcelname');
-            $table->string('Dimensions');
+            $table->string('dimensions');
             $table->string('parcelweight');
-            $table->string('pickupaddresss');
+            $table->string('pickupaddress');
             $table->string('dropoffaddress');
+            $table->string('pickupaddresslatitude');
+            $table->string('pickupaddresslongitude');
+            $table->string('dropoffaddresslatitude');
+            $table->string('dropoffaddresslongitude');
             $table->string('pickupdate');
-            $table->string('pickuptime');
+            $table->string('dropoffContactName');
+            $table->string('dropoffContactNumber');
+            $table->string('pickupStartTime');
+            $table->string('pickupEndTime');
+            $table->string('dropOffStartTime');
+            $table->string('dropOffEndTime');
+            $table->string('price');
+            $table->string('product');
+            $table->integer('hubId')->unsigned();
+            $table->foreign('hubId')->references('id')->on('hubs');
+            $table->string('status')->default('open');
             $table->timestamps();
         });
     }

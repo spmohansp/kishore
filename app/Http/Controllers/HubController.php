@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\product;
-use App\receiver;
+use App\Commutter;
+use DB;
+
+
+
+use Illuminate\Support\Facades\Auth; 
 
 
 class HubController extends Controller
@@ -14,73 +19,137 @@ class HubController extends Controller
         $this->middleware('hub');
     }
 
+
+    public function homeMap(){
+        $latitude=request()->latidude;
+        $longitude=request()->longitude;
+        return $liveData= Commutter::select(DB::raw('*, ( 6367 * acos( cos( radians('.$latitude.') ) * cos( radians( latidude ) ) * cos( radians( longitude ) - radians('.$longitude.') ) + sin( radians('.$latitude.') ) * sin( radians( latidude ) ) ) ) AS distance'))->having('distance', '<', 100)->get();
+        // $finalData='[';
+        // foreach ($liveData as $key => $value) {
+        //     if ($key != 0) {
+        //       $finalData= $finalData.",";
+        //     }
+        //     $finalData= $finalData."['".$value->name."',".$value->latidude.",".$value->longitude."]";
+        // }
+        // return $finalData.']';
+    }
+
     public function showaddproduct(){
         return view('hub.products.addproduct');
     }
     public function addproduct(){
+        $this->validate(request(),[
+            'parcelname'=>'required',
+            'dimensions'=>'required',
+            'parcelweight'=>'required',
+            'parcelweight'=>'required',
+            'dropoffaddress'=>'required',
+            'dropoffContactName'=>'required',
+            'dropoffContactNumber'=>'required',
+            'pickupdate'=>'required',
+            'pickupStartTime'=>'required',
+            'pickupEndTime'=>'required|after:pickupStartTime',
+            'dropOffStartTime'=>'required|after:pickupEndTime',
+            'dropOffEndTime'=>'required|after:dropOffStartTime',
+            'product'=>'required',
+            'price'=>'required',
+            'product'=>'required',
+            
+        ]);
+        $files = request()->parcelname.now()->timestamp.'.'.request()->file('product')->getClientOriginalExtension(); 
+        request()->file('product')->move(base_path().'/public/products', $files);
     	$product = new product;
         $product->parcelname = request('parcelname');
         $product->dimensions = request('dimensions');
         $product->parcelweight = request('parcelweight');
-        $product->pickupaddresss = request('pickupaddresss');
+        $product->pickupaddress = request('pickupaddress');
         $product->dropoffaddress = request('dropoffaddress');
+        $product->pickupaddresslatitude = request('pickupaddresslatitude');
+        $product->pickupaddresslongitude = request('pickupaddresslongitude');
+        $product->dropoffaddresslatitude = request('dropoffaddresslatitude');
+        $product->dropoffaddresslongitude = request('dropoffaddresslongitude');
+        $product->dropoffContactName = request('dropoffContactName');
+        $product->dropoffContactNumber = request('dropoffContactNumber');
         $product->pickupdate = request('pickupdate');
-        $product->pickuptime = request('pickuptime');
+        $product->pickupStartTime = request('pickupStartTime');
+        $product->pickupEndTime = request('pickupEndTime');
+        $product->dropOffStartTime = request('dropOffStartTime');
+        $product->dropOffEndTime = request('dropOffEndTime');
+        $product->price = request('price');
+        $product->product = $files;
+        $product->hubId = Auth::user()->id;
         $product->save();
-        return back();
+        return back()->with('success', 'Product Added Successfully');
     }
+
+    public function viewproduct(){
+        $products = product::all();
+        return view('hub.products.viewproduct',compact('products'));
+    }
+
      public function showEditproduct($id){
-        $addproduct = addproduct::findOrfail($id);
-        
-        return view('hub.products.editproduct', compact('addproduct'));
+        $product = product::findOrfail($id);
+        return view('hub.products.editproduct', compact('product'));
+    }
+
+    public function updateproduct($id){
+        $this->validate(request(),[
+            'parcelname'=>'required',
+            'dimensions'=>'required',
+            'parcelweight'=>'required',
+            'parcelweight'=>'required',
+            'dropoffaddress'=>'required',
+            'dropoffContactName'=>'required',
+            'dropoffContactNumber'=>'required',
+            'pickupdate'=>'required',
+            'pickupStartTime'=>'required',
+            'pickupEndTime'=>'required|after:pickupStartTime',
+            'dropOffStartTime'=>'required|after:pickupEndTime',
+            'dropOffEndTime'=>'required|after:dropOffStartTime',
+            'price'=>'required',
+        ]);
+        $product = product::findOrfail($id);
+        $product->parcelname = request('parcelname');
+        $product->dimensions = request('dimensions');
+        $product->parcelweight = request('parcelweight');
+        $product->pickupaddress = request('pickupaddress');
+        $product->dropoffaddress = request('dropoffaddress');
+        $product->pickupaddresslatitude = request('pickupaddresslatitude');
+        $product->pickupaddresslongitude = request('pickupaddresslongitude');
+        $product->dropoffaddresslatitude = request('dropoffaddresslatitude');
+        $product->dropoffaddresslongitude = request('dropoffaddresslongitude');
+        $product->price = request('price');
+        $product->pickupdate = request('pickupdate');
+
+        $product->dropoffContactName = request('dropoffContactName');
+        $product->dropoffContactNumber = request('dropoffContactNumber');
+
+        $product->pickupStartTime = request('pickupStartTime');
+        $product->pickupEndTime = request('pickupEndTime');
+        $product->dropOffStartTime = request('dropOffStartTime');
+        $product->dropOffEndTime = request('dropOffEndTime');
+
+        $product ->save();
+        return back()->with('success', 'Product Updated Successfully');
     }
 
     public function deleteproduct($id){
         try{
-
-            $Request = product::findOrfail($id);
-
-            $Request->delete();
-            return back();
-        } catch (Exception $e){
-            return back();
+            product::findOrfail($id)->delete();
+            return back()->with('success','Product Deleted Successfully');
+        } 	catch (Exception $e){
+            return back()->with('danger','Some Thing Went Wrong!');
         }
     }
 
-    public function updateproduct($id){
-        $addproduct = addproduct :: findOrfail($id);
-        $addproduct->parcelname = request('parcelname');
-        $addproduct->dimensions = request('dimensions');
-        $addproduct->parcelweight = request('parcelweight');
-        $addproduct->pickupaddresss = request('pickupaddresss');
-        $addproduct->dropoffaddress = request('dropoffaddress');
-        $addproduct->pickupdate = request('pickupdate');
-        $addproduct->pickuptime = request('pickuptime');
-        $addproduct ->save();
-        return back();
+    public function myorders(){
+        return view('hub.products.myOrders');
     }
 
 
-
-    public function viewproduct(){
-        $product = product::all();
-        return view('hub.products.viewproduct',compact('product'));
+    public function profile(){
+        return view('hub.profile.index');
     }
 
-    public function showaddreceiver()
-    {
-        return view('hub.products.addreceiver');
-    }
-
-    public function addreceiver()
-    {
-        $receiver = new receiver;
-        $receiver->receivername = request('receivername');
-        $receiver->receiverphone = request('receiverphone');
-        $receiver->email = request('email');
-        $receiver->save();
-        return back();
-    }
- 
  }
 

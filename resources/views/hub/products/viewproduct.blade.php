@@ -1,60 +1,59 @@
-@extends('hub.layout.master')
-@section('products')
+@extends('hub.layoutMobile.master')
+
+@section('product')
     is-active
 @endsection
 
-@section('addproduct')
+@section('viewproduct')
     is-active
 @endsection
 
 @section('header')
-    Add product
+    Active product
 @endsection
+
 @section('content')
 <div class="row">
-        <div class="col-12">
-            <div class="c-table-responsive@wide">
-                <table class="c-table">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover">
                     <thead class="c-table__head">
-                    <tr class="c-table__row">
-                        <th class="c-table__cell c-table__cell--head">Parcel Name</th>
-                        <th class="c-table__cell c-table__cell--head">Dimensions</th>
-                        <th class="c-table__cell c-table__cell--head">Parcel Weight</th>
-                        <th class="c-table__cell c-table__cell--head">Pickup Address</th>
-                        <th class="c-table__cell c-table__cell--head">Dropoff Address</th>
-                        <th class="c-table__cell c-table__cell--head">Pickup Date</th>
-                        <th class="c-table__cell c-table__cell--head">Pickup Time</th>
-                        <th class="c-table__cell c-table__cell--head">Actions</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                   @foreach($product as $addproduct)
                         <tr class="c-table__row">
-                            <td class="c-table__cell">{{$addproduct->parcelname}}</td>
-                            <th class="c-table__cell">{{$addproduct->dimensions}}</th>
-                            <th class="c-table__cell">{{$addproduct->parcelweight}}</th>
-                            <th class="c-table__cell">{{$addproduct->pickupaddresss}}</th>
-                            <th class="c-table__cell">{{$addproduct->dropoffaddress}}</th>
-                            <th class="c-table__cell">{{$addproduct->pickupdate}}</th>
-                            <th class="c-table__cell">{{$addproduct->pickuptime}}</th>
+                            <th class="c-table__cell c-table__cell--head">Parcel Name</th>
+                            <th class="c-table__cell c-table__cell--head">Dimensions</th>
+                            <th class="c-table__cell c-table__cell--head">Parcel Weight</th>
+                            <th class="c-table__cell c-table__cell--head">Pickup Address</th>
+                            <th class="c-table__cell c-table__cell--head">Dropoff Address</th>
+                            <th class="c-table__cell c-table__cell--head">Pickup Date</th>
+                            <th class="c-table__cell c-table__cell--head">Pickup Time</th>
+                            <th class="c-table__cell c-table__cell--head">Price</th>
+                            <th class="c-table__cell c-table__cell--head">Status</th>
+                            <th class="c-table__cell c-table__cell--head">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach(Auth::user()->products as $product)
+                   @if($product->status!='completed')
+                        <tr class="c-table__row">
+                            <td class="c-table__cell">{{$product->parcelname}}</td>
+                            <td class="c-table__cell">{{$product->dimensions}}</td>
+                            <td class="c-table__cell">{{$product->parcelweight}}</td>
+                            <td class="c-table__cell">{{$product->pickupaddress}}</td>
+                            <td class="c-table__cell">{{$product->dropoffaddress}}</td>
+                            <td class="c-table__cell">{{$product->pickupdate}}</td>
+                            <td class="c-table__cell">{{$product->pickupStartTime}}</td>
+                            <td class="c-table__cell">{{$product->price}}</td>
+                            <td class="c-table__cell">{{$product->status}}</td>
                             <td class="c-table__cell">
-                                <div class="c-dropdown dropdown">
-                                    <a href="#" class="c-btn c-btn--info has-icon dropdown-toggle" id="dropdownMenuTable1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                        More <i class="feather icon-chevron-down"></i>
-                                    </a>
-
-                                    <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuTable1">
-                                        <form action="{{ route('hub.deleteproduct', $addproduct->id) }}" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <a class="c-dropdown__item dropdown-item" href="{{ route('hub.editproduct', $addproduct->id) }}">Edit</a>
-                                            <button class="c-dropdown__item dropdown-item" onclick="return confirm('Are you sure?')">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                <form action="{{ route('hub.deleteproduct', $product->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <a href="{{ route('hub.editproduct', $product->id) }}"><i class="fa fa-pencil"></i></a>
+                                    <button onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
+                        @endif()
                  @endforeach
                     </tbody>
                 </table>

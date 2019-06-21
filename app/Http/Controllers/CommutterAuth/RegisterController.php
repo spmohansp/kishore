@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:commutters',
             'password' => 'required|min:6|confirmed',
+            'mobile' => 'required|unique:commutters',
         ]);
     }
 
@@ -66,6 +67,8 @@ class RegisterController extends Controller
         return Commutter::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'address' => $data['address'],
+            'mobile' => $data['mobile'],
             'password' => bcrypt($data['password']),
         ]);
     }

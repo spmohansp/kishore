@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Delevery On Our Way</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Styles -->
         <style>
             html, body {
@@ -66,23 +66,14 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/hub') }}">Hub</a>
-                        <a href="{{ url('/commutter') }}">Commutter</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    Last Mile App
+                    Delevery On Our Way
                 </div>
-
-              
+                <div  style="text-align: center">
+                    <a href="{{ url('/hub') }}"><button class="btn btn-success btn-sm">Hub</button></a>&emsp;&emsp;&emsp;&emsp;
+                    <a href="{{ url('/commutter') }}" ><button class="btn btn-primary btn-sm">Commuter</button></a>
+                </div>
             </div>
         </div>
     </body>

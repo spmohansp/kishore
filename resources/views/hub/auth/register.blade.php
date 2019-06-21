@@ -1,11 +1,11 @@
-@extends('hub.layout.auth')
+@extends('hub.layoutMobile.master')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Hub Register</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/hub/register') }}">
                         {{ csrf_field() }}
@@ -33,6 +33,34 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="address" class="form-control" name="address" value="{{ old('address') }}">
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }}">
+                            <label for="mobile" class="col-md-4 control-label">Mobile</label>
+
+                            <div class="col-md-6">
+                                <input id="mobile" type="mobile" class="form-control" name="mobile" value="{{ old('mobile') }}">
+
+                                @if ($errors->has('mobile'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('mobile') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -74,9 +102,7 @@
                             </div>
                         </div>
                     </form>Already Registered 
-                     <a class="btn btn-link" href="{{ url('/hub/') }}">
-                         Click To Login
-                    </a>
+                     <a class="btn btn-link" href="{{ url('/hub/') }}">Click To Login</a>
                 </div>
             </div>
         </div>

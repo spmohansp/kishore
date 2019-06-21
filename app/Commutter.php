@@ -16,7 +16,7 @@ class Commutter extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','address','mobile'
     ];
 
     /**
@@ -37,5 +37,13 @@ class Commutter extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new CommutterResetPassword($token));
+    }
+
+    public function getallorders(){
+        return $this->hasMany(order::class, 'commutterId', 'id');
+    }
+
+    public function getMyEarnings(){
+        return $this->hasMany(order::class, 'commutterId', 'id')->orderBy('updated_at', 'desc');
     }
 }
