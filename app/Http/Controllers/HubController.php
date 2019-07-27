@@ -42,7 +42,6 @@ class HubController extends Controller
             'parcelname'=>'required',
             'dimensions'=>'required',
             'parcelweight'=>'required',
-            'parcelweight'=>'required',
             'dropoffaddress'=>'required',
             'dropoffContactName'=>'required',
             'dropoffContactNumber'=>'required',
@@ -53,8 +52,11 @@ class HubController extends Controller
             'dropOffEndTime'=>'required|after:dropOffStartTime',
             'product'=>'required',
             'price'=>'required',
-            'product'=>'required',
-            
+            'pickupaddresslatitude'=>'required',
+            'pickupaddresslongitude'=>'required',
+            'dropoffaddresslatitude'=>'required',
+            'dropoffaddresslongitude'=>'required',
+
         ]);
         $files = request()->parcelname.now()->timestamp.'.'.request()->file('product')->getClientOriginalExtension(); 
         request()->file('product')->move(base_path().'/public/products', $files);
@@ -97,7 +99,6 @@ class HubController extends Controller
             'parcelname'=>'required',
             'dimensions'=>'required',
             'parcelweight'=>'required',
-            'parcelweight'=>'required',
             'dropoffaddress'=>'required',
             'dropoffContactName'=>'required',
             'dropoffContactNumber'=>'required',
@@ -107,6 +108,10 @@ class HubController extends Controller
             'dropOffStartTime'=>'required|after:pickupEndTime',
             'dropOffEndTime'=>'required|after:dropOffStartTime',
             'price'=>'required',
+            'pickupaddresslatitude'=>'required',
+            'pickupaddresslongitude'=>'required',
+            'dropoffaddresslatitude'=>'required',
+            'dropoffaddresslongitude'=>'required',
         ]);
         $product = product::findOrfail($id);
         $product->parcelname = request('parcelname');
